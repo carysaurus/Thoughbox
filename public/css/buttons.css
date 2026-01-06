@@ -1,0 +1,49 @@
+/* buttons.css */
+
+.feather {
+    width: clamp(.75rem, 5vw, 1.5rem);
+    height: clamp(.75rem, 5vw, 1.5rem);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+    border-radius: 10%;
+    background: none;
+    overflow: hidden;
+    background: var(--page-background);
+}
+
+button:hover,
+button:focus {
+    background: var(--button-focus);
+    transform: scale(1.1);
+}
+
+button:hover .feather,
+button:focus .feather {
+    /* stroke-width: 2.5; */
+    background: var(--button-focus);
+    color: white;
+}
+
+.editBoxBtn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+.editBoxBtn {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.newNoteBtn {
+    margin-top: 1rem;
+}

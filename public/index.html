@@ -1,0 +1,85 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Thoughtbox - Think. Store. Sort.</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Thoughtbox</h1>
+        <p>A simple place to organize your thoughts.</p>
+    </header>
+
+    <main>
+        <div id="boxContainer">
+            <!-- Create new Box -->
+            <form id="addBox">
+                <p>Build New Box</p>
+                <div id="formColLeft">
+
+
+                    <input type="text" id="boxTitle" placeholder="New Box Name" required />
+
+                    <select id="boxColour">
+                        <option value="" disabled selected hidden>Colour Theme</option>
+                        <option value="light">Light</option>
+                        <option value="pink">Pink</option>
+                        <option value="blue">Blue</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div id="formColRight">
+                    <button type="submit" id="addBoxBtn" aria-label="Add new box"><i data-feather="plus"></i>
+                    </button>
+                </div>
+            </form>
+            <div id="boxesShowAll">
+                <!-- Boxes will show up here -->
+                <div class="box light">
+
+                    <h2>Box Title</h2>
+                    <button type="button" class="editBoxBtn"><i data-feather="edit"></i></button>
+
+                    <form class="editBoxForm">
+                        <input type="text" id="editBoxTitle" placeholder="New Box Name">
+
+                        <select id="editBoxColour">
+                            <option value="" disabled selected hidden>Colour Theme</option>
+                            <option value="light">Light</option>
+                            <option value="pink">Pink</option>
+                            <option value="blue">Blue</option>
+                            <option value="dark">Dark</option>
+                        </select>
+
+                        <div class="editBtns">
+                            <button type="button" class="editFormBtn"><i data-feather="check-square"></i></button>
+                            <button type="button" class="uneditFormBtn"><i data-feather="x-square"></i></button>
+                            <button type="button" class="deleteFormBtn"><i data-feather="trash-2"></i></button></div>
+                    </form>
+
+
+                    <div class="boxNotes">
+                        <p>Notes will go here</p>
+                    </div>
+                    <button type="button" class="newNoteBtn"><i data-feather="plus"></i>
+                        <i data-feather="message-square"></i></button>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Feather icons CDN -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Main JS -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

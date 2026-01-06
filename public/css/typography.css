@@ -1,0 +1,41 @@
+/* typography.css */
+
+/* Import from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Font Styles */
+h1 {
+    font-size: 4rem;
+    flex: 1 1 auto;
+    font-weight: 700;
+    font-family: 'Playfair Display';
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Playfair Display';
+}
+
+header p {
+    font-style: italic;
+    max-width: 500px;
+    text-align: right;
+    padding-left: 2rem;
+}
+
+#addBox p {
+    font-weight: 700;
+    padding-bottom: .5rem;
+    width: auto;
+}
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: clamp(2rem, 14vw, 4rem);
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
+    }
+}
