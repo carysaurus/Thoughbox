@@ -1,0 +1,53 @@
+Git Cheat Sheet
+1️⃣ Check current branch & status
+git status
+git branch -vv
+
+(Shows what branch you’re on, which files are staged/unstaged, and which remote branch you’re tracking.)
+
+
+2️⃣ Stage changes
+
+All modified and new files:
+git add .
+
+Specific files only:
+git add path/to/file1 path/to/file2
+
+
+3️⃣ Commit changes
+
+Inline commit message (avoids Vim):
+git commit -m "Add new feature / fix / update"
+
+
+Commit all tracked files in one go:
+git commit -am "Update tracked files"
+
+
+-a = stage tracked files automatically
+-m = message inline
+
+4️⃣ Push changes
+First time pushing a branch or new branch:
+git push --set-upstream origin main
+
+Subsequent pushes:
+git push
+
+(Replace main with your branch name if different.)
+
+5️⃣ Pull changes from remote
+git pull
+
+(Makes sure your local branch is up to date before pushing.)
+
+6️⃣ Quick workflow example
+git add .
+git commit -m "Add new game tiles"
+git push
+
+
+Or, one-liner if all changes are tracked:
+
+git commit -am "Update game scaling" && git push

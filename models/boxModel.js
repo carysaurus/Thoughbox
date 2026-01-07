@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const {
     Schema
 } = mongoose;
-const boxColours = require('../public/js/boxColours');
+
+const {
+    boxColours
+} = require('../config/colourThemes');
 
 const boxSchema = new Schema({
     title: {
@@ -21,6 +24,7 @@ const boxSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: false,
+        // to be updated once userId is implemented
     }
 });
 

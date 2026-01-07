@@ -1,7 +1,13 @@
 // noteModel.js
 
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const {
+    Schema
+} = mongoose;
+
+const {
+    noteColours
+} = require('../config/colourThemes');
 
 const noteSchema = new Schema({
     title: {
@@ -9,39 +15,66 @@ const noteSchema = new Schema({
         required: true,
         trim: true
     },
-    description: {
+    colour: {
         type: String,
-        trim: true
-    },
-    completed: {
-        type: Boolean,
-        default: false
-    },
-    order: {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now
+        enum: noteColours,
+        required: true
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: false,
+        // to be updated once userId is implemented
     },
-    bookId: {
+    boxId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Box',
         required: true,
-    }
+    },
+    description: {
+        type: String,
+        trim: true
+    },
+    checkboxes: [{
+        label: String,
+        checked: {
+            type: Boolean,
+            default: false
+        }
+    }],
+    list: [{
+        type: String,
+        trim: true
+    }],
+    links: [{
+        label: {
+            type: String,
+            trim: true
+        },
+        url: {
+            type: String,
+            trim: true
+        }
+    }],
+    images: [{
+        src: String,
+        alt: String
+    }],
+    archived: {
+        type: Boolean,
+        default: false
+    },
+
+    order: {
+        type: Number,
+        default: 0
+    },
+}, {
+    timestamps: true
 });
 
 const Note = mongoose.model('Note', noteSchema);
 
-module.exports = { Note }
+module.exports = {
+    Note
+}

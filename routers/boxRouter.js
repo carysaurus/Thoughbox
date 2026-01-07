@@ -1,14 +1,17 @@
 // boxRouter.js
 
+// --------------------------------------
+// Variables
+// --------------------------------------
 const express = require('express');
 const router = express.Router();
 const {
     Box
 } = require('../models/boxModel');
 
-
-
-//  Fetch all Boxes
+// --------------------------------------
+// Fetch All Boxes
+// --------------------------------------
 router.get('/', async (req, res) => {
     try {
         const boxes = await Box.find();
@@ -21,17 +24,22 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Create new Box
+// --------------------------------------
+// Create New Box
+// --------------------------------------
 router.post('/', async (req, res) => {
     try {
         const {
             title,
-            colour
+            colour,
+            // userId is not set
+
         } = req.body;
 
         const newBox = new Box({
             title,
             colour
+            // userId is not set
         });
         const result = await newBox.save();
         res.status(201).json({
@@ -46,20 +54,23 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Update existing Box
+// --------------------------------------
+// Update Existing Box
+// --------------------------------------
 router.put('/:id', async (req, res) => {
     try {
         const boxId = req.params.id;
         const {
             title,
             colour
+            // userId is not set
         } = req.body;
         const toBeUpdated = await Box.findById(boxId);
         if (toBeUpdated) {
-            if (title != undefined) {
+            if (title !== undefined) {
                 toBeUpdated.title = title;
             }
-            if (colour != undefined) {
+            if (colour !== undefined) {
                 toBeUpdated.colour = colour;
             }
             await toBeUpdated.save();
@@ -80,7 +91,9 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// --------------------------------------
 // Delete a Box
+// --------------------------------------
 router.delete('/:id', async (req, res) => {
     try {
         const boxId = req.params.id;

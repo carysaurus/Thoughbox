@@ -1,6 +1,6 @@
 /* boxes.css */
 
-#boxesShowAll {
+#showBoxes {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -10,10 +10,18 @@
 
 .box {
     padding: 1rem;
+    margin: .5rem 0;
     max-width: 500px;
     width: 100%;
     box-sizing: border-box;
     position: relative;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .box {
+        max-width: 100%;
+    }
 }
 
 .box h2 {
