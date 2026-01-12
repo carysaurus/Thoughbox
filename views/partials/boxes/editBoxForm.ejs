@@ -1,0 +1,17 @@
+<!-- editBoxForm.ejs -->
+
+
+<form class="editBoxForm collapsed" data-box-id="<%= box._id %>" method="POST"
+    action="/boxes/edit/<%= box._id %>?_method=PUT">
+
+    <div class="formColLeft">
+        <input type="text" class="editBoxTitle" name="editBoxTitle" value="<%= box.title %>" required />
+        <select class="editBoxColour" name="editBoxColour">
+            <% boxColours.forEach(colour => { %>
+            <option value="<%= colour %>" <%= box.colour === colour ? 'selected' : ''%>><%= colour %></option>
+            <% }) %>
+        </select></div>
+    <div class="formColRight">
+        <button type="submit" class="saveEditBoxBtn" title="Save changes" data-id="<%= box._id %>"
+            aria-label="Save changes"><i data-feather="save"></i></button></div>
+</form>

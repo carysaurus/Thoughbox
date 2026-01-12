@@ -1,7 +1,7 @@
 // colourThemes.js
 
-const boxColours = ['light', 'pink', 'blue', 'green', 'orange', 'purple', 'teal']
-const noteColours = ['light', 'pink', 'blue', 'dark']
+const boxColours = ['Light', 'Pink', 'Blue', 'Green', 'Orange', 'Purple', 'Teal', 'Gold'];
+const noteColours = ['Light', 'Pink', 'Blue', 'Green', 'Orange', 'Purple', 'Teal', 'Gold'];
 
 module.exports = {
     boxColours,

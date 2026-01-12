@@ -1,0 +1,30 @@
+<!-- index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/page/head') %>
+
+<body>
+
+    <%- include('partials/page/header') %>
+
+    <main>
+        <!-- partials/noteForm -->
+        <div id="containerBoxes">
+            <!-- Create new Box -->
+            <%- include('partials/boxes/newBoxForm') %>
+
+            <div id="userBoxes">
+                <% boxes.forEach(box => { %>
+                <%- include('partials/boxes/box', { box }) %>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/page/footer') %>
+
+</body>
+
+</html>

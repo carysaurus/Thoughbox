@@ -1,9 +1,13 @@
 /* typography.css */
 
+/* -------------------------------------- */
 /* Import from Google Fonts */
+/* -------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* -------------------------------------- */
 /* Font Styles */
+/* -------------------------------------- */
 h1 {
     font-size: 4rem;
     flex: 1 1 auto;
@@ -23,7 +27,6 @@ h3 {
     font-family: 'Playfair Display';
 }
 
-
 header p {
     font-style: italic;
     max-width: 500px;
@@ -31,9 +34,10 @@ header p {
     padding-left: 2rem;
 }
 
-#addBox p {
+#newBoxFormTitle {
     font-weight: 700;
-    padding-bottom: .5rem;
+    padding-bottom: .2rem;
+    padding-top: .2rem;
     width: auto;
 }
 

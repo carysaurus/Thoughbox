@@ -14,7 +14,12 @@ const {
 // --------------------------------------
 router.get('/', async (req, res) => {
     try {
-        const notes = await Note.find();
+        const notes = await Note.find({
+            archived: false
+        });
+
+        // Update to filter by UserId once User feature is functional
+
         res.status(200).json(notes);
     } catch (err) {
         res.status(500).json({
@@ -32,29 +37,21 @@ router.post('/', async (req, res) => {
         const {
             title,
             colour,
+            type,
             // userId is not set
             boxId,
-            description,
-            checkboxes,
-            list,
-            links,
-            images,
             archived,
-            order
+            order,
         } = req.body;
 
         const newNote = new Note({
             title,
             colour,
+            type,
             // userId is not set
             boxId,
-            description,
-            checkboxes,
-            list,
-            links,
-            images,
             archived,
-            order
+            order,
         });
         const result = await newNote.save();
         res.status(201).json({
@@ -78,23 +75,21 @@ router.put('/:id', async (req, res) => {
         const {
             title,
             colour,
-            description,
+            text,
             checkboxes,
             list,
             links,
             images,
+            tags,
             archived,
         } = req.body;
         const toBeUpdated = await Note.findById(noteId);
         if (toBeUpdated) {
-            if (title !== undefined) {
-                toBeUpdated.title = title;
-            }
-            if (colour !== undefined) {
-                toBeUpdated.colour = colour;
-            }
-            if (description !== undefined) {
-                toBeUpdated.description = description;
+            toBeUpdated.title = title;
+            toBeUpdated.colour = colour;
+
+            if (text !== undefined) {
+                toBeUpdated.text = text;
             }
             if (checkboxes !== undefined) {
                 toBeUpdated.checkboxes = checkboxes;
@@ -108,9 +103,15 @@ router.put('/:id', async (req, res) => {
             if (images !== undefined) {
                 toBeUpdated.images = images;
             }
+            if (tags !== undefined) {
+                toBeUpdated.tags = tags;
+            }
             if (archived !== undefined) {
                 toBeUpdated.archived = archived;
             }
+
+            // To be updated once archiving and re-ordering is implemented
+
             await toBeUpdated.save();
             res.status(200).json({
                 message: 'Thought updated successfully!',

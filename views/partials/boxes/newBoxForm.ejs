@@ -1,0 +1,30 @@
+<!-- newBoxForm.ejs -->
+<div id="containerNewBoxForm">
+    <div id="newBoxFormHead">
+        <p id="newBoxFormTitle">Build New Box</p>
+        <button type="button" id="expandNewBoxBtn" title="Expand" aria-label="Expand form"><i
+                data-feather="chevrons-down"></i>
+        </button>
+        <button type="button" id="collapseNewBoxBtn" class="hidden" title="Collapse" aria-label="Collapse form"><i
+                data-feather="chevrons-up"></i>
+        </button>
+    </div>
+
+    <form id="newBoxForm" class="collapsed" method="POST" action="/boxes">
+        <!-- Update to include User ID once user functions are implemented -->
+        <div class="formColLeft">
+            <input type="text" id="boxTitle" name="boxTitle" placeholder="New Box Name" required />
+            <select id="boxColour" name="boxColour">
+                <option value="" disabled selected hidden>Colour Theme</option>
+                <% boxColours.forEach(colour => { %>
+                <option value="<%= colour %>"><%= colour %></option>
+                <% }) %>
+
+            </select>
+        </div>
+        <div class="formColRight">
+            <button type="submit" id="addBoxBtn" aria-label="Add new box"><i data-feather="plus"></i>
+            </button>
+        </div>
+    </form>
+</div>

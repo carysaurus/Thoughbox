@@ -8,69 +8,101 @@ const {
 const {
     noteColours
 } = require('../config/colourThemes');
+const {
+    noteTypes
+} = require('../config/noteTypes');
+
 
 const noteSchema = new Schema({
     title: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
     },
     colour: {
         type: String,
+        required: true,
         enum: noteColours,
-        required: true
+        default: 'Light',
+    },
+    type: {
+        type: String,
+        required: true,
+        enum: noteTypes,
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
+        required: false, // To be updated when Users are implemented
         ref: 'User',
-        required: false,
-        // to be updated once userId is implemented
     },
     boxId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Box',
         required: true,
+        ref: 'Box',
     },
-    description: {
+    text: {
         type: String,
-        trim: true
+        trim: true,
     },
     checkboxes: [{
         label: String,
         checked: {
             type: Boolean,
             default: false
-        }
+        },
     }],
     list: [{
         type: String,
-        trim: true
+        trim: true,
     }],
+
     links: [{
         label: {
             type: String,
-            trim: true
+            trim: true,
         },
         url: {
             type: String,
-            trim: true
-        }
+            trim: true,
+        },
     }],
     images: [{
-        src: String,
-        alt: String
+        src: {
+            type: String,
+            trim: true,
+        },
+        alt: {
+            type: String,
+            trim: true,
+        },
+        description: {
+            type: String,
+            trim: true,
+        },
+    }],
+    tags: [{
+        type: String,
+        trim: true,
+        lowercase: true,
+        required: false,
     }],
     archived: {
         type: Boolean,
-        default: false
+        default: false,
+        required: true,
     },
 
     order: {
         type: Number,
-        default: 0
+        default: 0,
+        required: true,
     },
 }, {
     timestamps: true
+});
+
+noteSchema.index({
+    boxId: 1
 });
 
 const Note = mongoose.model('Note', noteSchema);

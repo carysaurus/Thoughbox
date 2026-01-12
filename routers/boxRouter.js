@@ -8,113 +8,79 @@ const router = express.Router();
 const {
     Box
 } = require('../models/boxModel');
-
 // --------------------------------------
 // Fetch All Boxes
 // --------------------------------------
-router.get('/', async (req, res) => {
-    try {
-        const boxes = await Box.find();
-        res.status(200).json(boxes);
-    } catch (err) {
-        res.status(500).json({
-            message: 'Something went wrong! Please try again later.',
-            error: err.message
-        });
-    }
-});
+// router.get('/', async (req, res) => {
+//     try {
+//         const userBoxes = await Box.find({
+//             archived: false
+//         });
+
+//         // Update to filter by UserId once User feature is functional
+
+//         res.render('boxes', {
+//             userBoxes
+//         });
+//     } catch (error) {
+//         console.error('Error fetching user Boxes:', error);
+//     }
+// });
 
 // --------------------------------------
 // Create New Box
 // --------------------------------------
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
         const {
-            title,
-            colour,
-            // userId is not set
-
+            boxTitle,
+            boxColour
         } = req.body;
-
-        const newBox = new Box({
-            title,
-            colour
-            // userId is not set
+        const box = new Box({
+            title: boxTitle,
+            colour: boxColour || undefined,
         });
-        const result = await newBox.save();
-        res.status(201).json({
-            message: 'New box successfully created!',
-            result
-        });
+        await box.save();
+        res.redirect('/');
     } catch (err) {
-        res.status(500).json({
-            message: 'Error while creating new box. Please try again later.',
-            error: err.message
-        });
+        console.error('Error creating new Box:', err);
+        res.status(500).send('Failed to create box');
     }
 });
 
 // --------------------------------------
 // Update Existing Box
 // --------------------------------------
-router.put('/:id', async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
     try {
-        const boxId = req.params.id;
         const {
-            title,
-            colour
-            // userId is not set
+            editBoxTitle,
+            editBoxColour
         } = req.body;
-        const toBeUpdated = await Box.findById(boxId);
-        if (toBeUpdated) {
-            if (title !== undefined) {
-                toBeUpdated.title = title;
-            }
-            if (colour !== undefined) {
-                toBeUpdated.colour = colour;
-            }
-            await toBeUpdated.save();
-            res.status(200).json({
-                message: 'Box updated successfully!',
-                box: toBeUpdated
-            });
-        } else {
-            res.status(404).json({
-                message: 'Box not found.'
-            });
-        }
-    } catch (err) {
-        res.status(500).json({
-            message: 'Error while updating Box. Please try again later.',
-            error: err.message
+        await Box.findByIdAndUpdate(req.params.id, {
+            title: editBoxTitle,
+            colour: editBoxColour
         });
+
+        res.redirect('/');
+
+    } catch (error) {
+        console.error('Error updating Box:', error);
+        res.status(500).send('Failed to update Box');
     }
 });
 
 // --------------------------------------
 // Delete a Box
 // --------------------------------------
-router.delete('/:id', async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
     try {
-        const boxId = req.params.id;
-        const toBeDeleted = await Box.findById(boxId);
-        if (toBeDeleted) {
-            await Box.deleteOne({
-                _id: boxId
-            });
-            res.status(200).json({
-                message: 'Box deleted successfully.'
-            });
-        } else {
-            res.status(404).json({
-                message: 'Box not found.'
-            });
-        }
-    } catch (err) {
-        res.status(500).json({
-            message: 'Error while deleting this Box. Please try again later.',
-            error: err.message
-        });
+        await Box.findByIdAndDelete(req.params.id);
+        res.redirect('/');
+    } catch (error) {
+        console.error('Error deleting Box:', error);
+        res.status(500).send('Failed to delete Box');
     }
 });
 

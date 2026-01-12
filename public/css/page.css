@@ -1,0 +1,51 @@
+/* base.css */
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Raleway;
+}
+
+body {
+    background-color: var(--page-background);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+main {
+    background-color: var(--main-background);
+    border-top: 4px double var(--main-border);
+    border-bottom: 4px double var(--main-border);
+    margin-top: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow-x: hidden;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding: .5rem 1rem 1rem .5rem;
+}
+
+footer p {
+    font-weight: 300;
+    font-size: 0.8rem;
+}

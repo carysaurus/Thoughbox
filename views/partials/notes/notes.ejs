@@ -1,0 +1,23 @@
+<!-- note.ejs -->
+
+<div class="note <%= note.colour %>">
+    <!-- ADD COLOUR -->
+    <div class="noteHead">
+        <h3>Note Title</h3>
+        <button type="button" class="expandNoteBtn"><i data-feather="chevrons-down"></i></button>
+        <button type="button" class="collapseNoteBtn"><i data-feather="chevrons-up"></i></button>
+    </div>
+    <div class="noteBody">
+        <div class="line <%= note.colour %>"></div>
+        <div class="noteContent">
+            <p>Note Description</p>
+        </div>
+
+        <button type="button" class="editNoteBtn"><i data-feather="edit"></i></button>
+    </div>
+    <div class="noteTags">
+        <div class="line <%= note.colour %>"></div> <!-- ADD COLOUR -->
+
+        <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
+        <div class="listTags"></div>
+    </div>

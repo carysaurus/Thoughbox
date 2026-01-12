@@ -1,12 +1,21 @@
 /* styles.css */
 
+/* base styles */
+@import url("./base/reset.css");
+@import url("./base/colourVars.css");
+@import url("./base/typography.css");
+@import url("./base/colourThemes.css");
 
-@import url("./reset.css");
-@import url("./variables.css");
-@import url("./typography.css");
+/* page styles */
+@import url("./page.css");
 @import url("./buttons.css");
-@import url("./colourThemes.css");
 
-@import url("./base.css");
-@import url("./boxes.css");
-@import url("./notes.css");
+/* box styles */
+@import url("./boxes/boxes.css");
+@import url("./boxes/boxForms.css");
+@import url("./boxes/boxMenu.css");
+
+/* note styles */
+@import url("./notes/notes.css");
+@import url("./notes/noteForms.css");
+@import url("./notes/noteMenu.css");

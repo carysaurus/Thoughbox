@@ -8,11 +8,10 @@ const {
     noteColours
 } = require('../config/colourThemes');
 
-router.get('/colours', async (req, res) => {
-    res.json({
-        boxColours,
-        noteColours
-    });
+router.use((req, res, next) => {
+    res.locals.boxColours = boxColours;
+    res.locals.noteColours = noteColours;
+    next();
 });
 
 module.exports = router;

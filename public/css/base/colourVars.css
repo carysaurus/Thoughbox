@@ -1,8 +1,9 @@
 /* variables.css */
 
+
 /* Colours */
 :root {
-    /* base */
+    /* page */
     --page-background: rgb(234, 224, 218);
 
     /* main colours */
@@ -19,5 +20,6 @@
 
     /* other */
     --darkwash: rgba(40, 39, 39, 0.127);
-    --lightwash: rgba(255, 255, 255, 0.445);
+    --lightwash: rgba(255, 255, 255, 0.79);
+    --boxMenuBg: rgba(40, 39, 39, 0.448);
 }

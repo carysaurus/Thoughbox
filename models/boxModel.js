@@ -17,14 +17,24 @@ const boxSchema = new Schema({
     },
     colour: {
         type: String,
-        enum: boxColours,
         required: true,
+        enum: boxColours,
+        default: 'Light',
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
+        required: false, // To be updated when Users are implemented
         ref: 'User',
-        required: false,
-        // to be updated once userId is implemented
+    },
+    order: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    archived: {
+        type: Boolean,
+        required: true,
+        default: false,
     }
 });
 

@@ -1,0 +1,99 @@
+/* boxForms.css */
+
+/* -------------------------------------- */
+/* New Box Form */
+/* -------------------------------------- */
+#containerNewBoxForm {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: .5rem 1rem;
+    background-color: var(--light-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--main-border);
+    border-bottom: 4px double var(--main-border);
+    border-left: 1px solid var(--main-border);
+    border-right: 1px solid var(--main-border);
+}
+
+#newBoxFormHead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+#newBoxForm {
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+    display: flex;
+    flex-direction: row;
+    gap: .75rem;
+    padding: .5rem 0rem;
+}
+
+#newBoxForm>* {
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+}
+
+#newBoxForm.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+#newBoxForm.collapsed>* {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+.formColLeft {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.formColRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------------------------- */
+/* Edit Box Form */
+/* -------------------------------------- */
+.editBoxForm {
+    background-color: var(--darkwash);
+    padding: 1rem;
+    margin: .5rem -1rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* align-items: flex-start; */
+    gap: .5rem;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.editBoxForm>* {
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+}
+
+.editBoxForm.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+.editBoxForm.collapsed>* {
+    opacity: 0;
+    transform: translateY(-4px);
+}
