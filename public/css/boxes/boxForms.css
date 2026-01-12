@@ -34,23 +34,6 @@
     padding: .5rem 0rem;
 }
 
-#newBoxForm>* {
-    opacity: 1;
-    transform: translateY(0);
-    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
-}
-
-#newBoxForm.collapsed {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
-}
-
-#newBoxForm.collapsed>* {
-    opacity: 0;
-    transform: translateY(-4px);
-}
 
 .formColLeft {
     display: flex;
@@ -80,12 +63,18 @@
     transition: max-height 0.3s ease, opacity 0.2s ease;
 }
 
+
+/* -------------------------------------- */
+/* Collapsed Styles */
+/* -------------------------------------- */
+#newBoxForm>*,
 .editBoxForm>* {
     opacity: 1;
     transform: translateY(0);
     transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
 }
 
+#newBoxForm.collapsed,
 .editBoxForm.collapsed {
     max-height: 0;
     opacity: 0;
@@ -93,6 +82,7 @@
     padding: 0;
 }
 
+#newBoxForm.collapsed>*,
 .editBoxForm.collapsed>* {
     opacity: 0;
     transform: translateY(-4px);

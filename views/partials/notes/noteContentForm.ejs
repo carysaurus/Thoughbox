@@ -1,0 +1,29 @@
+ <!--noteContentFormNew.ejs  -->
+
+ <form id="noteContentForm" class="collapsed" method="POST" action="/notes">
+     <!-- ADD BOX ID -->
+     <h3 class="noteFormTitle">New Thought</h3>
+     <input type="hidden" id="noteBoxId" name="noteBoxId">
+     <input type="hidden" id="noteType" name="noteType">
+     <input type="text" id="noteTitle" name="noteTitle" placeholder="New Thought Name" required />
+     <select id="noteColour" name="noteColour">
+         <option value="" disabled selected hidden>Colour Theme</option>
+         <% noteColours.forEach(colour => { %>
+         <option value="<%= colour %>"><%= colour %></option>
+         <% }) %>
+     </select>
+     <div id="noteUserInput">
+         <textarea id="noteText" name="noteText" required></textarea></div>
+
+     <div class="line"></div>
+     <div id="noteTagsArea"><button type="button" class="tagIcon"><i data-feather="tag"></i></button>
+         <textarea id="noteTags" rows="1" placeholder="tags optional"></textarea>
+     </div>
+     <div id="noteFormBtns">
+         <button type="button" id="returnTypeBtn" aria-label="Return to Thought Type">
+             <i data-feather="delete"></i></button>
+         <button type="submit" id="saveNoteBtn" aria-label="Save Thought">
+             <i data-feather="save"></i></button>
+     </div>
+
+ </form>

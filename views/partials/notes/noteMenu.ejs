@@ -1,0 +1,24 @@
+<!-- noteMenu.ejs -->
+
+<div class="noteMenu" data-id="<%= note._id %>">
+        <button type="button" class="noteMenuMainBtn" data-id="<%= note._id %>" aria-label=" Thought Menu"><i
+                        data-feather="menu"></i></button>
+
+        <div class="noteMenuBtns collapsed">
+
+                <button type="button" class="editNoteBtn" title="Edit Thought" data-id="<%= note._id %>"
+                        aria-label="Edit Thought"><i data-feather="edit"></i></button>
+                <button type="button" class="moveNoteBtn" title="Move Thought" data-id="<%= note._id %>"
+                        aria-label="Move Thought"><i data-feather="move"></i></button>
+
+                <button type="button" class="archiveNoteBtn" title="Send to Storage (Archive)" data-id="<%= note._id %>"
+                        aria-label="Send to Storage (Archive)"><i data-feather="archive"></i></button>
+
+                <form class="deleteNote" data-box-id="<%= note._id %>" method="POST"
+                        action="/notes/delete/<%= note._id %>?_method=DELETE">
+                        <button type="submit" class="deleteNoteBtn" title="Delete Thought (Permanent)"
+                                data-id="<%= note._id %>" aria-label="
+            Delete Thought (Permanent)"><i data-feather="trash-2"></i></button>
+                </form>
+        </div>
+</div>

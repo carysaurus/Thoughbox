@@ -6,19 +6,23 @@ const {
 } = require('../models/boxModel');
 const {
     Note
-} = require('../models/noteModel'); // ready to add Notes once function is implemented
+} = require('../models/noteModel');
+
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
         const userBoxes = await Box.find({});
         // Box.find({ user: req.user._id });
+        const boxNotes = await Note.find({});
         res.render('index', {
-            boxes: userBoxes
+            boxes: userBoxes,
+            notes: boxNotes,
         });
+
     } catch (err) {
-        console.error('Error fetching user Boxes:', err);
-        res.status(500).send('Failed to load boxes');
+        console.error('Error fetching User data:', err);
+        res.status(500).send('Failed to load data');
     }
 });
 

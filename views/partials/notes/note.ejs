@@ -1,23 +1,26 @@
 <!-- note.ejs -->
 
-<div class="note <%= note.colour %>">
-    <!-- ADD COLOUR -->
+<div class="note <%= note.colour %>" box-id="<%= box._id %>" note-id="<%= note._id %>">
+
     <div class="noteHead">
-        <h3>Note Title</h3>
+        <h3><%= note.title %></h3>
         <button type="button" class="expandNoteBtn"><i data-feather="chevrons-down"></i></button>
         <button type="button" class="collapseNoteBtn"><i data-feather="chevrons-up"></i></button>
+        <%- include('./noteMenu') %>
     </div>
     <div class="noteBody">
-        <div class="line <%= note.colour %>"></div>
+        <div class="line <%= note.colour %>">
+        </div>
         <div class="noteContent">
-            <p>Note Description</p>
+            <p> <%= note.text %></p>
         </div>
 
-        <button type="button" class="editNoteBtn"><i data-feather="edit"></i></button>
+
     </div>
     <div class="noteTags">
-        <div class="line <%= note.colour %>"></div> <!-- ADD COLOUR -->
+        <div class="line <%= note.colour %>"></div>
 
         <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
         <div class="listTags"></div>
     </div>
+</div>

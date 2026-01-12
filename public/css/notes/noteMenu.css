@@ -1,1 +1,47 @@
 /* noteMenu.css */
+
+.noteMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .25rem;
+}
+
+.noteMenuBtns {
+    background-color: var(--darkwash);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: .5rem;
+    grid-row-gap: .75rem;
+    margin-top: .5rem;
+    padding: .5rem;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+    z-index: 2;
+}
+
+/* -------------------------------------- */
+/* Collapsed Styles */
+/* -------------------------------------- */
+.noteMenuBtns>* {
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+}
+
+.noteMenuBtns.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+.noteMenuBtns.collapsed>* {
+    opacity: 0;
+    transform: translateY(-4px);
+}

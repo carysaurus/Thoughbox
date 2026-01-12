@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const configRouter = require('./routers/configRouter');
 const boxRouter = require('./routers/boxRouter');
 const pageRouter = require('./routers/pageRouter');
+const noteRouter = require('./routers/noteRouter');
 
 const app = express();
 const PORT = 3000;
@@ -30,6 +31,7 @@ app.use(methodOverride('_method'));
 /* -------------------------------------- */
 app.use(configRouter);
 app.use('/boxes', boxRouter);
+app.use('/notes', noteRouter);
 app.use('/', pageRouter);
 
 

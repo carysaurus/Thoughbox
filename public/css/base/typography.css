@@ -41,6 +41,14 @@ header p {
     width: auto;
 }
 
+.noteTypeBtn p {
+    padding-left: .5rem;
+}
+
+.noteFormTitle {
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 500px) {
     header h1 {
         font-size: clamp(2rem, 14vw, 4rem);

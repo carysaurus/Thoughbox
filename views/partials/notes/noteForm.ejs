@@ -1,1 +1,9 @@
 <!-- noteForm.ejs -->
+
+<div id="noteFormWindow" class="collapsed">
+    <div id="noteFormFrame">
+        <button type="button" class="cancelNoteBtn"><i data-feather="x-square"></i></button>
+        <%- include ('./noteTypeForm') %>
+        <%- include ('./noteContentForm') %>
+    </div>
+</div>

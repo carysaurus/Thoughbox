@@ -1,8 +1,40 @@
 /* notes.css */
 
 .boxNotes {
-    border: 1px solid rebeccapurple;
     flex: 1 1 auto;
     width: 100%;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.note {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+}
+
+.noteHead {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    position: relative;
+
+}
+
+.noteBody {
+    position: relative;
+}
+
+.noteContent {
+    padding-top: .5rem;
+    padding-bottom: .25rem;
+    overflow-y: auto;
+}
+
+.noteTags {
+    display: none;
 }

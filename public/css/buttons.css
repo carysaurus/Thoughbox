@@ -61,8 +61,6 @@ button.hidden {
 /* -------------------------------------- */
 /* User Box Buttons */
 /* -------------------------------------- */
-
-
 .editBoxBtn {
     grid-area: 1 / 1 / 2 / 2;
 }
@@ -80,5 +78,60 @@ button.hidden {
 }
 
 .newNoteBtn {
-    margin-top: .5rem;
+    margin-top: .75rem;
+}
+
+/* -------------------------------------- */
+/* Note Form Buttons */
+/* -------------------------------------- */
+.cancelNoteBtn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.noteTypeBtn {
+    padding: .25rem;
+    padding-left: .5rem;
+    width: 150px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* -------------------------------------- */
+/* Note Buttons */
+/* -------------------------------------- */
+
+.expandNoteBtn,
+.collapseNoteBtn,
+.noteMenuMainBtn {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.expandNoteBtn.collapsed,
+.collapseNoteBtn.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+.editNoteBtn {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.moveNoteBtn {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.archiveNoteBtn {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.deleteNoteBtn {
+    grid-area: 2 / 2 / 3 / 3;
 }
