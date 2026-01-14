@@ -72,6 +72,13 @@
     gap: .5rem;
 }
 
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
 /* -------------------------------------- */
 /* Collapsed Styles */
 /* -------------------------------------- */

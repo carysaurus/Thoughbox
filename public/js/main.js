@@ -5,10 +5,21 @@ import {
 } from "./buttons.js";
 
 import {
+    checkOpenBoxMenu,
+
+} from "./boxes/boxes.js";
+import {
+    checkOpenNoteMenu,
     expandNoteBody,
     collapseNoteBody
-} from "./buttons.js";
+} from "./notes/notes.js";
+
 
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
+});
+
+document.addEventListener('click', () => {
+    checkOpenBoxMenu();
+    checkOpenNoteMenu();
 });

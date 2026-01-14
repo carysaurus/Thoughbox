@@ -1,0 +1,27 @@
+<!-- archive.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/page/head') %>
+
+<body>
+
+    <%- include('partials/page/header') %>
+
+    <main>
+        <div id="archiveBoxes">
+            <h2>Storage (Archive)</h2>
+
+            <div id="userBoxes">
+
+                <%- include('partials/boxes/box', { box }) %>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/page/footer') %>
+
+</body>
+
+</html>

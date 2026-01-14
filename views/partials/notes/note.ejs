@@ -4,13 +4,6 @@
 
     <div class="noteHead">
         <h3><%= note.title %></h3>
-        <form class="noteExpandCollapseBtns" data-note-id="<%= note._id %>" method="POST"
-            action="/notes/collapse/<%= note._id %>?_method=PUT">
-            <button type="submit" class="expandNoteBtn <%= note.collapsed ? '' : 'collapsed' %>" name="collapsed"
-                value="false" data-note-id="<%= note._id %>"><i data-feather="chevrons-down"></i></button>
-            <button type="submit" class="collapseNoteBtn <%= note.collapsed ? 'collapsed' : '' %>" name="collapsed"
-                value="true" data-note-id="<%= note._id %>"><i data-feather="chevrons-up"></i></button>
-        </form>
 
         <%- include('./noteMenu', { boxId: box._id, note }) %>
     </div>
@@ -18,7 +11,7 @@
         <div class="line <%= note.colour %>">
         </div>
         <div class="noteContent">
-            <p> <%= note.text %></p>
+            <p><%= note.text %></p>
         </div>
     </div>
     <div class=" noteTags" data-note-id="<%= note._id %>">

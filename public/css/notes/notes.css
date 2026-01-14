@@ -20,7 +20,8 @@
 .noteHead {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
     position: relative;
 
 }
@@ -44,6 +45,10 @@
     padding-top: .5rem;
     padding-bottom: .25rem;
     overflow-y: auto;
+}
+
+.noteContent p {
+    white-space: pre-wrap;
 }
 
 .noteTags {

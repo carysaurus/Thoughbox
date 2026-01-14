@@ -1,10 +1,28 @@
 // buttons.js
 import {
-    setEditNoteMode
+    setEditNoteMode,
+    resetNoteForm
 } from "./notes/editNote.js";
 
+import {
+    setTextNote,
+    setImageNote,
+    resetNoteType
+} from "./notes/newNote.js";
+
+import {
+    toggleNoteMenuVis,
+    expandNoteBody,
+    collapseNoteBody
+} from "./notes/notes.js";
+
+import {
+    toggleBoxMenuVis,
+    toggleBoxEditForm
+} from "./boxes/boxes.js";
+
 let currentBoxId = null;
-let setNoteType = null;
+
 let currentBoxColour = null;
 
 
@@ -42,29 +60,20 @@ const newNoteBtns = document.querySelectorAll('.newNoteBtn');
 
 // Open Menu for Individual Box
 boxMenuMainBtns.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (event) => {
         const boxId = button.dataset.boxId;
-        toggleBoxMenuVis(boxId);
+        toggleBoxMenuVis(boxId, event);
     })
-})
-window.toggleBoxMenuVis = function (id) {
-    const boxMenu = document.querySelector(`.boxMenuBtns[data-box-id="${id}"]`);
-    boxMenu.classList.toggle('collapsed');
-};
+});
 
 // Toggle Box Edit Form
 editBoxBtns.forEach(button => {
     button.addEventListener('click', () => {
         const boxId = button.dataset.boxId;
-        toggleBoxMenuVis(boxId);
         toggleBoxEditForm(boxId);
+        toggleBoxMenuVis(boxId);
     })
 });
-
-window.toggleBoxEditForm = function (id) {
-    const boxEditForm = document.querySelector(`.editBoxForm[data-box-id="${id}"]`);
-    boxEditForm.classList.toggle('collapsed');
-};
 
 // Re-order Boxes -- to be updated once function is implemented
 moveBoxBtns.forEach(button => {
@@ -90,12 +99,14 @@ const noteTypeForm = document.getElementById('noteTypeForm');
 const noteContentForm = document.getElementById('noteContentForm');
 
 const cancelNoteBtn = document.querySelector('.cancelNoteBtn');
-const noteTextBtn = document.querySelector(".noteTypeBtn.text")
+const noteTextBtn = document.querySelector(".noteTypeBtn.text");
+const noteImageBtn = document.querySelector(".noteTypeBtn.image");
 const returnTypeBtn = document.getElementById("returnTypeBtn");
 
 // Add new Note to Box
 newNoteBtns.forEach(button => {
     button.addEventListener('click', () => {
+        resetNoteForm();
         currentBoxId = button.dataset.boxId;
         currentBoxColour = button.dataset.colour;
 
@@ -111,19 +122,24 @@ cancelNoteBtn.addEventListener('click', () => {
     noteFormWindow.classList.add('collapsed');
     noteTypeForm.classList.add('collapsed');
     noteContentForm.classList.add('collapsed');
-})
+});
 returnTypeBtn.addEventListener('click', () => {
     noteContentForm.classList.add('collapsed');
     noteTypeForm.classList.remove('collapsed');
-    setNoteType = null;
-})
+    resetNoteType();
+});
 noteTextBtn.addEventListener('click', () => {
-    setNoteType = 'text';
-    document.getElementById('noteType').value = setNoteType;
-
+    setTextNote();
+    returnTypeBtn.style.display = 'flex';
     noteTypeForm.classList.add('collapsed');
     noteContentForm.classList.remove('collapsed');
-})
+});
+noteImageBtn.addEventListener('click', () => {
+    setImageNote();
+    returnTypeBtn.style.display = 'flex';
+    noteTypeForm.classList.add('collapsed');
+    noteContentForm.classList.remove('collapsed');
+});
 
 
 // --------------------------------------
@@ -136,16 +152,11 @@ const editNoteBtns = document.querySelectorAll('.editNoteBtn');
 
 
 noteMenuMainBtns.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (event) => {
         const noteId = button.dataset.noteId;
-        toggleNoteMenuVis(noteId);
+        toggleNoteMenuVis(noteId, event);
     })
 });
-
-window.toggleNoteMenuVis = function (id) {
-    const noteMenu = document.querySelector(`.noteMenuBtns[data-note-id="${id}"]`);
-    noteMenu.classList.toggle('collapsed');
-};
 
 expandNoteBtns.forEach(button => {
     button.addEventListener('click', () => {
@@ -159,22 +170,6 @@ collapseNoteBtns.forEach(button => {
         collapseNoteBody(noteId, button);
     })
 });
-export function expandNoteBody(id, button) {
-    const noteBody = document.querySelector(`.noteBody[data-note-id="${id}"]`);
-    const collapseBtn = document.querySelector(`.collapseNoteBtn[data-note-id="${id}"]`);
-
-    noteBody.classList.remove('collapsed');
-    collapseBtn.classList.remove('collapsed');
-    button.classList.add('collapsed');
-}
-export function collapseNoteBody(id, button) {
-    const noteBody = document.querySelector(`.noteBody[data-note-id="${id}"]`);
-    const expandBtn = document.querySelector(`.expandNoteBtn[data-note-id="${id}"]`);
-
-    noteBody.classList.add('collapsed');
-    expandBtn.classList.remove('collapsed');
-    button.classList.add('collapsed');
-}
 
 editNoteBtns.forEach(button => {
     button.addEventListener('click', () => {

@@ -1,10 +1,12 @@
 // editNote.js
 
-
 const noteContentForm = document.getElementById('noteContentForm');
 const noteFormWindow = document.getElementById('noteFormWindow');
 const noteTypeForm = document.getElementById('noteTypeForm');
+const noteReturnBtn = document.getElementById('returnTypeBtn');
 
+const noteBoxId = document.getElementById('noteBoxId');
+const noteType = document.getElementById('noteType');
 const noteTitleValue = document.getElementById('noteTitle');
 const noteColourValue = document.getElementById('noteColour');
 const noteTextValue = document.getElementById('noteText');
@@ -15,8 +17,8 @@ export function setEditNoteMode(note) {
         `/notes/edit/${note._id}?_method=PUT`);
 
     // Populate hidden fields
-    document.getElementById('noteBoxId').value = note.boxId;
-    document.getElementById('noteType').value = note.type;
+    noteBoxId.value = note.boxId;
+    noteType.value = note.type;
 
     // Populate visible fields
     noteTitleValue.value = note.title;
@@ -31,4 +33,13 @@ export function setEditNoteMode(note) {
     noteFormWindow.classList.remove('collapsed');
     noteTypeForm.classList.add('collapsed');
     noteContentForm.classList.remove('collapsed');
+    noteReturnBtn.style.display = 'none';
+};
+
+export function resetNoteForm() {
+    noteBoxId.value = '';
+    noteType.value = '';
+    noteTitleValue.value = '';
+    noteColourValue.value = '';
+    noteTextValue.value = '';
 };

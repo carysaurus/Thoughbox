@@ -46,6 +46,12 @@ button.hidden {
     pointer-events: none;
 }
 
+.smallBtn {
+    width: 1.75rem;
+    height: 1.75rem;
+
+}
+
 /* -------------------------------------- */
 /* New Box Form Buttons */
 /* -------------------------------------- */
@@ -61,25 +67,36 @@ button.hidden {
 /* -------------------------------------- */
 /* Box Buttons */
 /* -------------------------------------- */
+
+.newNoteBtn {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.newNoteBtn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .editBoxBtn {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.moveBoxBtn {
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.archiveBoxBtn {
     grid-area: 2 / 1 / 3 / 2;
 }
 
-.deleteBoxBtn {
+.moveBoxBtn {
     grid-area: 2 / 2 / 3 / 3;
 }
 
-.newNoteBtn {
-    margin-top: .75rem;
+.archiveBoxBtn {
+    grid-area: 3 / 1 / 4 / 2;
 }
+
+.deleteBoxBtn {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+
 
 /* -------------------------------------- */
 /* Note Form Buttons */
@@ -110,6 +127,10 @@ button.hidden {
 .noteMenuMainBtn {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.noteMenuMainBtn {
+    position: relative;
 }
 
 .expandNoteBtn.collapsed,

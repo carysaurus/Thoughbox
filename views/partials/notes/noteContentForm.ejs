@@ -12,7 +12,20 @@
          <% }) %>
      </select>
      <div id="noteUserInput">
-         <textarea id="noteText" name="noteText" required></textarea></div>
+         <textarea id="noteText" name="noteText" class="collapsed"></textarea>
+         <div id="noteImageInput" class="collapsed">
+             <label for="imageURL">Image URL:</label> <input type="text" id="imageURL" name="imageURL"
+                 placeholder="http://www....">
+             <br>
+             <label for="imageDescripton">Description:</label> <input type="text" id="imageDescripton"
+                 name="imageDescription" placeholder="optional">
+
+             <div id="previewImg"> <button type="button" class="previewImgBtn smallBtn"><i data-feather="eye"></i>
+                 </button>
+             </div>
+
+         </div>
+     </div>
 
      <div class="line"></div>
      <div id="noteTagsArea"><button type="button" class="tagIcon"><i data-feather="tag"></i></button>

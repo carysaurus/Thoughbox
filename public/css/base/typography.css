@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     font-family: 'Playfair Display';
 }
@@ -25,6 +25,7 @@ h3 {
     font-size: 1.25rem;
     font-weight: 700;
     font-family: 'Playfair Display';
+    line-height: 1.25;
 }
 
 header p {
@@ -55,6 +56,6 @@ header p {
     }
 
     h2 {
-        font-size: clamp(1.5rem, 10vw, 2.5rem);
+        font-size: clamp(1.5rem, 10vw, 2rem);
     }
 }
