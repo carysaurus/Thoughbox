@@ -30,11 +30,6 @@
     position: relative;
 }
 
-.noteExpandCollapseBtns>* {
-    position: absolute;
-    left: 0;
-}
-
 
 .noteBody {
     position: relative;
@@ -51,6 +46,16 @@
     white-space: pre-wrap;
 }
 
+.imgDescP {
+    padding-top: .5rem;
+}
+
+.noteImg {
+    max-width: 100%;
+    object-fit: contain;
+
+}
+
 .noteTags {
     display: none;
 }
@@ -59,6 +64,13 @@
 /* -------------------------------------- */
 /* Collapsed Styles */
 /* -------------------------------------- */
+
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
 
 .noteBody>* {
     opacity: 1;
@@ -76,4 +88,9 @@
 .noteBody.collapsed>* {
     opacity: 0;
     transform: translateY(-4px);
+}
+
+.noteExpandCollapseBtns>* {
+    position: absolute;
+    left: 0;
 }

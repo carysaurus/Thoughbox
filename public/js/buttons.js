@@ -1,14 +1,14 @@
 // buttons.js
 import {
-    setEditNoteMode,
-    resetNoteForm
-} from "./notes/editNote.js";
-
-import {
+    loadNoteTypeForm,
+    closeNoteFormWindow,
     setTextNote,
     setImageNote,
-    resetNoteType
-} from "./notes/newNote.js";
+    resetNoteType,
+    setEditNoteMode,
+    resetNoteForm,
+    loadNoteImagePreview
+} from "./notes/noteForm.js";
 
 import {
     toggleNoteMenuVis,
@@ -34,6 +34,7 @@ const expandNewBoxBtn = document.getElementById('expandNewBoxBtn');
 const collapseNewBoxBtn = document.getElementById('collapseNewBoxBtn');
 
 expandNewBoxBtn.addEventListener('click', expandNewBoxForm);
+
 collapseNewBoxBtn.addEventListener('click', collapseNewBoxForm);
 
 export function expandNewBoxForm() {
@@ -94,14 +95,13 @@ archiveBoxBtns.forEach(button => {
 // --------------------------------------
 // Note Form Buttons
 // --------------------------------------
-const noteFormWindow = document.getElementById('noteFormWindow');
-const noteTypeForm = document.getElementById('noteTypeForm');
-const noteContentForm = document.getElementById('noteContentForm');
-
 const cancelNoteBtn = document.querySelector('.cancelNoteBtn');
+const returnTypeBtn = document.getElementById("returnTypeBtn");
+
 const noteTextBtn = document.querySelector(".noteTypeBtn.text");
 const noteImageBtn = document.querySelector(".noteTypeBtn.image");
-const returnTypeBtn = document.getElementById("returnTypeBtn");
+const previewImgBtn = document.getElementById("previewImgBtn");
+
 
 // Add new Note to Box
 newNoteBtns.forEach(button => {
@@ -114,32 +114,28 @@ newNoteBtns.forEach(button => {
         const noteColourValue = document.getElementById('noteColour');
         noteColourValue.value = currentBoxColour;
 
-        noteFormWindow.classList.remove('collapsed');
-        noteTypeForm.classList.remove('collapsed');
+        loadNoteTypeForm();
     })
 });
 cancelNoteBtn.addEventListener('click', () => {
-    noteFormWindow.classList.add('collapsed');
-    noteTypeForm.classList.add('collapsed');
-    noteContentForm.classList.add('collapsed');
+    closeNoteFormWindow();
 });
 returnTypeBtn.addEventListener('click', () => {
-    noteContentForm.classList.add('collapsed');
-    noteTypeForm.classList.remove('collapsed');
     resetNoteType();
+    loadNoteTypeForm();
 });
+
 noteTextBtn.addEventListener('click', () => {
-    setTextNote();
     returnTypeBtn.style.display = 'flex';
-    noteTypeForm.classList.add('collapsed');
-    noteContentForm.classList.remove('collapsed');
+    setTextNote();
 });
 noteImageBtn.addEventListener('click', () => {
-    setImageNote();
     returnTypeBtn.style.display = 'flex';
-    noteTypeForm.classList.add('collapsed');
-    noteContentForm.classList.remove('collapsed');
+    setImageNote();
 });
+previewImgBtn.addEventListener('click', () => {
+    loadNoteImagePreview();
+})
 
 
 // --------------------------------------
@@ -178,8 +174,12 @@ editNoteBtns.forEach(button => {
             title: button.dataset.noteTitle,
             colour: button.dataset.noteColour,
             type: button.dataset.noteType,
-            text: button.dataset.noteText
-        }
+            text: button.dataset.noteText || '',
+            image: {
+                src: button.dataset.noteImgSrc || '',
+                desc: button.dataset.noteImgDesc || '',
+            }
+        };
         setEditNoteMode(note);
     })
 });

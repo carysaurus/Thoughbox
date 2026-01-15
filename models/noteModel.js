@@ -66,20 +66,16 @@ const noteSchema = new Schema({
             trim: true,
         },
     }],
-    images: [{
+    image: {
         src: {
             type: String,
             trim: true,
         },
-        alt: {
+        desc: {
             type: String,
             trim: true,
         },
-        description: {
-            type: String,
-            trim: true,
-        },
-    }],
+    },
     tags: [{
         type: String,
         trim: true,

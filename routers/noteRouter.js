@@ -41,6 +41,8 @@ router.post('/', async (req, res) => {
             noteType,
             noteBoxId,
             noteText,
+            noteImgSrc,
+            noteImgDesc,
         } = req.body;
 
         if (!noteBoxId) {
@@ -57,6 +59,13 @@ router.post('/', async (req, res) => {
         if (noteType === 'text') {
             note.text = noteText;
         };
+
+        if (noteType === 'image') {
+            note.image = {
+                src: noteImgSrc,
+                desc: noteImgDesc
+            };
+        }
 
         await note.save();
         res.redirect('/');
@@ -78,6 +87,8 @@ router.put("/edit/:id", async (req, res) => {
             noteColour,
             noteType,
             noteText,
+            noteImgSrc,
+            noteImgDesc
         } = req.body;
 
         const updateData = {
@@ -86,6 +97,12 @@ router.put("/edit/:id", async (req, res) => {
         };
         if (noteType === 'text') {
             updateData.text = noteText;
+        };
+        if (noteType === 'image') {
+            updateData.image = {
+                src: noteImgSrc,
+                desc: noteImgDesc
+            }
         };
 
         await Note.findByIdAndUpdate(req.params.id, updateData);

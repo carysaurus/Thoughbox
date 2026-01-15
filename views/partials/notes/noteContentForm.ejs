@@ -1,7 +1,7 @@
  <!--noteContentForm.ejs  -->
 
  <form id="noteContentForm" class="collapsed" method="POST" action="/notes">
-     <h3 class="noteFormTitle">New Thought</h3>
+     <h3 id="noteFormTitle"></h3>
      <input type="hidden" id="noteBoxId" name="noteBoxId">
      <input type="hidden" id="noteType" name="noteType">
      <input type="text" id="noteTitle" name="noteTitle" placeholder="New Thought Name" required />
@@ -13,18 +13,22 @@
      </select>
      <div id="noteUserInput">
          <textarea id="noteText" name="noteText" class="collapsed"></textarea>
+
+
          <div id="noteImageInput" class="collapsed">
-             <label for="imageURL">Image URL:</label> <input type="text" id="imageURL" name="imageURL"
-                 placeholder="http://www....">
+             <label for="noteImgSrc" class="noteLabel">Image URL:</label> <input type="text" id="noteImgSrc"
+                 name="noteImgSrc" placeholder="http://www....">
              <br>
-             <label for="imageDescripton">Description:</label> <input type="text" id="imageDescripton"
-                 name="imageDescription" placeholder="optional">
+             <label for="noteImgDesc" class="noteLabel">Description:</label> <textarea id="noteImgDesc"
+                 name="noteImgDesc" rows="3" placeholder="optional"></textarea>
 
-             <div id="previewImg"> <button type="button" class="previewImgBtn smallBtn"><i data-feather="eye"></i>
-                 </button>
+             <div id="previewImg"> <button type="button" id="previewImgBtn" class="xsBtn" title="Preview Image"><i
+                         data-feather="eye"></i> </button>
+                 <img id="previewImgHere">
              </div>
-
          </div>
+
+
      </div>
 
      <div class="line"></div>

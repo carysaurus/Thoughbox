@@ -11,7 +11,16 @@
         <div class="line <%= note.colour %>">
         </div>
         <div class="noteContent">
+            <% if (note.text) { %>
             <p><%= note.text %></p>
+            <% } %>
+            <% if (note.image?.src) { %>
+            <img src="<%= note.image.src %>" class="noteImg">
+            <% } %>
+            <% if (note.image.desc) { %>
+            <p class="imgDescP"><%= note.image.desc %> </p>
+            <% } %>
+
         </div>
     </div>
     <div class=" noteTags" data-note-id="<%= note._id %>">

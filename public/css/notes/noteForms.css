@@ -1,5 +1,8 @@
 /* noteForms.css */
 
+/* -------------------------------------- */
+/* Forms */
+/* -------------------------------------- */
 #noteFormWindow {
     position: absolute;
     width: 100%;
@@ -40,29 +43,11 @@
     height: 100%;
 }
 
-#noteUserInput {
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100px;
-}
-
-#noteText {
-    width: 100%;
-    flex: 1;
-    min-height: 100px;
-}
-
+/* -------------------------------------- */
+/* General inputs */
+/* -------------------------------------- */
 #noteTags {
     width: 100%;
-}
-
-#noteFormBtns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: .5rem;
 }
 
 #noteTagsArea {
@@ -72,6 +57,72 @@
     gap: .5rem;
 }
 
+#noteFormBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+}
+
+/* -------------------------------------- */
+/* Type-specific inputs */
+/* -------------------------------------- */
+#noteUserInput {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.noteLabel {
+    margin-bottom: .25rem;
+}
+
+#noteText {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+#noteImageInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+#previewImg {
+    position: relative;
+    margin-top: 1rem;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--darkwash);
+    border: 1px solid var(--main-border);
+}
+
+#previewImgBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#previewImgHere {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+
+/* -------------------------------------- */
+/* Collapsed Styles */
+/* -------------------------------------- */
 .collapsed {
     max-height: 0;
     opacity: 0;
@@ -79,13 +130,10 @@
     padding: 0;
 }
 
-/* -------------------------------------- */
-/* Collapsed Styles */
-/* -------------------------------------- */
-
 #noteFormWindow>*,
 #noteTypeForm>*,
-#noteContentForm>* {
+#noteContentForm>*,
+#noteText>* {
     opacity: 1;
     transform: translateY(0);
     transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
@@ -93,8 +141,10 @@
 
 #noteFormWindow.collapsed,
 #noteTypeForm.collapsed,
-#noteContentForm.collapsed {
+#noteContentForm.collapsed,
+#noteText.collapsed {
     max-height: 0;
+    min-height: 0;
     opacity: 0;
     pointer-events: none;
     padding: 0;
@@ -102,7 +152,7 @@
 
 #noteFormWindow.collapsed>*,
 #noteTypeForm.collasped>*,
-#noteContentForm.collapsed>* {
+#noteContentForm.collapsed>* #noteText.collapsed>* {
     opacity: 0;
     transform: translateY(-4px);
 }
