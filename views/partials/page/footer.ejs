@@ -2,9 +2,13 @@
 
 <footer>
     <div id="navBtns">
-        <button type="button" class="homeBtn" title="Home" aria-label="Home"><i data-feather="home"></i></button>
-        <button type="button" class="archiveBtn" title="Storage" aria-label="Storage (Archive)"><i
-                data-feather="archive"></i></button>
+        <form class="showHome" method="GET" action="/">
+            <button type="submit" class="homeBtn" title="Home" aria-label="Home"><i data-feather="home"></i></button>
+        </form>
+
+        <form class="showArchive" method="GET" action="/archived">
+            <button type="submit" class="archiveBtn" title="Storage" aria-label="Storage (Archive)"><i
+                    data-feather="archive"></i></button></form>
     </div>
     <p>&copy; 2026 Carys Richards / Carysaurus</p>
     <img src="assets/iconCarysaurus.png" class="footer-image" alt="Carysaurus" />

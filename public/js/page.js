@@ -1,1 +1,1 @@
-// page.js
+// public/js/page.js

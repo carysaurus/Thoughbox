@@ -1,9 +1,27 @@
-// colourThemes.js
+// config/colourThemes.js
 
-const boxColours = ['Light', 'Pink', 'Blue', 'Green', 'Orange', 'Purple', 'Teal', 'Gold'];
-const noteColours = ['Light', 'Pink', 'Blue', 'Green', 'Orange', 'Purple', 'Teal', 'Gold'];
+const boxColours = [
+  "Light",
+  "Pink",
+  "Blue",
+  "Green",
+  "Orange",
+  "Purple",
+  "Teal",
+  "Gold",
+];
+const noteColours = [
+  "Light",
+  "Pink",
+  "Blue",
+  "Green",
+  "Orange",
+  "Purple",
+  "Teal",
+  "Gold",
+];
 
 module.exports = {
-    boxColours,
-    noteColours
+  boxColours,
+  noteColours,
 };

@@ -1,4 +1,4 @@
-<!-- noteMenu.ejs -->
+<!-- views/partials/notes/noteMenu.ejs -->
 
 <div class="noteMenu" data-note-id="<%= note._id %>">
         <div class="noteMenuHead">
@@ -28,9 +28,10 @@
                 <button type="button" class="moveNoteBtn smallBtn" title="Move Thought" data-note-id="<%= note._id %>"
                         aria-label="Move Thought"><i data-feather="move"></i></button>
 
-                <button type="button" class="archiveNoteBtn smallBtn" title="Send to Storage (Archive)"
-                        data-note-id="<%= note._id %>" aria-label="Send to Storage (Archive)"><i
-                                data-feather="archive"></i></button>
+
+                <button type="button" class="archiveNoteBtn smallBtn" title="Archive/Unarchive"
+                        data-note-id="<%= note._id %>" data-box-id="<%= box._id %>" data-archived="<%= note.archived %>"
+                        aria-label="Archive/Unarchive"><i data-feather="archive"></i></button>
 
                 <form class="deleteNote" data-note-id="<%= note._id %>" method="POST"
                         action="/notes/delete/<%= note._id %>?_method=DELETE">

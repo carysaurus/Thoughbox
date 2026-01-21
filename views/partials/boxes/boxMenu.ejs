@@ -1,4 +1,4 @@
-<!-- boxMenu.ejs -->
+<!-- views/partials/boxes/boxMenu.ejs -->
 
 <div class="boxMenu">
         <button type="button" class="boxMenuMainBtn smallBtn" data-box-id="<%= box._id %>" aria-label="Box Menu"><i
@@ -17,15 +17,16 @@
                 <button type="button" class="moveBoxBtn smallBtn" title="Move Box" data-box-id="<%= box._id %>"
                         aria-label="Move Box"><i data-feather="move"></i></button>
 
-                <button type="button" class="archiveBoxBtn smallBtn" title="Send to Storage (Archive)"
-                        data-box-id="<%= box._id %>" aria-label="Send to Storage (Archive)"><i
-                                data-feather="archive"></i></button>
+                <form class="archiveBox" data-box-id="<%= box._id %>" method="POST"
+                        action="/boxes/archive/<%= box._id %>?_method=PUT">
+                        <button type="submit" class="archiveBoxBtn smallBtn" title="Archive/Unarchive"
+                                data-box-id="<%= box._id %>" aria-label="Archive / Unarchive"><i
+                                        data-feather="archive"></i></button></form>
 
                 <form class="deleteBox" data-box-id="<%= box._id %>" method="POST"
                         action="/boxes/delete/<%= box._id %>?_method=DELETE">
                         <button type="submit" class="deleteBoxBtn smallBtn" title="Delete Box (Permanent)"
                                 data-box-id="<%= box._id %>" aria-label="
-                                Delete Box (Permanent)"><i data-feather="trash-2"></i></button>
-                </form>
+                                Delete Box (Permanent)"><i data-feather="trash-2"></i></button></form>
         </div>
 </div>

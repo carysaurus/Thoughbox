@@ -1,25 +1,24 @@
-/* variables.css */
-
+/* public/css/base/variables.css */
 
 /* Colours */
 :root {
-    /* page */
-    --page-background: rgb(234, 224, 218);
+  /* page */
+  --page-background: rgb(234, 224, 218);
 
-    /* main colours */
-    --main-background: rgb(240, 240, 240);
-    --main-border: rgb(181, 172, 167);
+  /* main colours */
+  --main-background: rgb(240, 240, 240);
+  --main-border: rgb(181, 172, 167);
 
-    /* buttons */
-    --button-background: rgb(226, 209, 200);
-    --button-focus: rgb(204, 190, 183);
+  /* buttons */
+  --button-background: rgb(226, 209, 200);
+  --button-focus: rgb(204, 190, 183);
 
-    /* font colours */
-    --font-dark: rgb(44, 44, 44);
-    --font-light: rgb(246, 246, 246);
+  /* font colours */
+  --font-dark: rgb(44, 44, 44);
+  --font-light: rgb(246, 246, 246);
 
-    /* other */
-    --darkwash: rgba(40, 39, 39, 0.127);
-    --lightwash: rgba(255, 255, 255, 0.79);
-    --boxMenuBg: rgba(40, 39, 39, 0.448);
+  /* other */
+  --darkwash: rgba(40, 39, 39, 0.127);
+  --lightwash: rgba(255, 255, 255, 0.79);
+  --boxMenuBg: rgba(40, 39, 39, 0.448);
 }

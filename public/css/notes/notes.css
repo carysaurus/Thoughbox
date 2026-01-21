@@ -1,88 +1,84 @@
-/* notes.css */
+/* public/css/notes/notes.css */
 
 .boxNotes {
-    flex: 1 1 auto;
-    width: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
+  flex: 1 1 auto;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .note {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
 }
 
 .noteHead {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    position: relative;
-
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
 }
 
 .noteExpandCollapseBtns {
-    position: relative;
+  position: relative;
 }
 
-
 .noteBody {
-    position: relative;
-    margin-top: .5rem;
+  position: relative;
+  margin-top: 0.5rem;
 }
 
 .noteContent {
-    padding-top: .5rem;
-    padding-bottom: .25rem;
-    overflow-y: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+  overflow-y: auto;
 }
 
 .noteContent p {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .imgDescP {
-    padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 .noteImg {
-    max-width: 100%;
-    object-fit: contain;
-
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .line.tag {
-    position: absolute;
-    margin-top: -1rem;
+  position: absolute;
+  margin-top: -1rem;
 }
 
 .noteTags {
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    gap: .5rem;
-    align-items: flex-start;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 .listTags {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: .2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 p.tag {
-    padding: .2rem;
-    border-radius: .2rem;
-    background-color: var(--boxMenuBg);
-    color: var(--font-light);
-
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  background-color: var(--boxMenuBg);
+  color: var(--font-light);
 }
 
 /* -------------------------------------- */
@@ -90,32 +86,35 @@ p.tag {
 /* -------------------------------------- */
 
 .collapsed {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
 }
 
-.noteBody>* {
-    opacity: 1;
-    transform: translateY(0);
-    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+.noteBody > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease,
+    padding 0.2s ease;
 }
 
 .noteBody.collapsed {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
-    margin: 0;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
+  margin: 0;
 }
 
-.noteBody.collapsed>* {
-    opacity: 0;
-    transform: translateY(-4px);
+.noteBody.collapsed > * {
+  opacity: 0;
+  transform: translateY(-4px);
 }
 
-.noteExpandCollapseBtns>* {
-    position: absolute;
-    left: 0;
+.noteExpandCollapseBtns > * {
+  position: absolute;
+  left: 0;
 }

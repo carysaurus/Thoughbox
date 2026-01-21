@@ -1,88 +1,94 @@
-/* boxForms.css */
+/* public/css/boxes/boxForms.css */
 
 /* -------------------------------------- */
 /* New Box Form */
 /* -------------------------------------- */
 #containerNewBoxForm {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    padding: .5rem 1rem;
-    background-color: var(--light-background);
-    border-radius: .5rem;
-    border-top: 4px double var(--main-border);
-    border-bottom: 4px double var(--main-border);
-    border-left: 1px solid var(--main-border);
-    border-right: 1px solid var(--main-border);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background-color: var(--light-background);
+  border-radius: 0.5rem;
+  border-top: 4px double var(--main-border);
+  border-bottom: 4px double var(--main-border);
+  border-left: 1px solid var(--main-border);
+  border-right: 1px solid var(--main-border);
 }
 
 #newBoxFormHead {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 #newBoxForm {
-    opacity: 1;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
-    display: flex;
-    flex-direction: row;
-    gap: .75rem;
-    padding: .5rem 0rem;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease,
+    padding 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  padding: 0.5rem 0rem;
 }
 
-
 .formColLeft {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .formColRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* -------------------------------------- */
 /* Edit Box Form */
 /* -------------------------------------- */
 .editBoxForm {
-    background-color: var(--darkwash);
-    padding: 1rem;
-    margin: .5rem -1rem;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: .5rem;
-    opacity: 1;
-    transition: max-height 0.3s ease, opacity 0.2s ease;
+  background-color: var(--darkwash);
+  padding: 1rem;
+  margin: 0.5rem -1rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.5rem;
+  opacity: 1;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease;
 }
-
 
 /* -------------------------------------- */
 /* Collapsed Styles */
 /* -------------------------------------- */
-#newBoxForm>*,
-.editBoxForm>* {
-    opacity: 1;
-    transform: translateY(0);
-    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+#newBoxForm > *,
+.editBoxForm > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease,
+    padding 0.2s ease;
 }
 
 #newBoxForm.collapsed,
 .editBoxForm.collapsed {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
 }
 
-#newBoxForm.collapsed>*,
-.editBoxForm.collapsed>* {
-    opacity: 0;
-    transform: translateY(-4px);
+#newBoxForm.collapsed > *,
+.editBoxForm.collapsed > * {
+  opacity: 0;
+  transform: translateY(-4px);
 }

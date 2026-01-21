@@ -1,3 +1,3 @@
-// authRouter.js
+// routers/authRouter.js
 
 module.exports = router;
