@@ -118,6 +118,28 @@
   object-fit: contain;
 }
 
+#noteListInput {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+.note-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.noteListItem {
+  flex: 1;
+  min-width: 0;
+  margin-right: 0.5rem;
+}
+
 /* -------------------------------------- */
 /* Collapsed Styles */
 /* -------------------------------------- */
@@ -126,6 +148,7 @@
   opacity: 0;
   pointer-events: none;
   padding: 0;
+  margin: 0;
 }
 
 #noteFormWindow > *,

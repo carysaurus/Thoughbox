@@ -12,7 +12,10 @@
          <% }) %>
      </select>
      <div id="noteUserInput">
+         <!-- Text -->
          <textarea id="noteText" name="noteText" class="collapsed"></textarea>
+
+         <!-- Image -->
          <div id="noteImageInput" class="collapsed">
              <label for="noteImgSrc" class="noteLabel">Image URL:</label> <input type="text" id="noteImgSrc"
                  name="noteImgSrc" placeholder="image.jpg">
@@ -25,7 +28,19 @@
                  <img id="previewImgHere">
              </div>
          </div>
-         <textarea id="noteList" name="noteList" class="collapsed"></textarea>
+
+         <!-- List -->
+         <div id="noteListInput" class="collapsed">
+             <% for (let i = 0; i < 20; i++) { %>
+             <div class="note-item">
+                 <span class="bullet">&bull;</span>
+                 <input type="text" name="noteListItem" class="noteListItem">
+             </div>
+             <% } %>
+
+             <!-- Links -->
+
+         </div>
 
      </div>
 

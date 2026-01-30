@@ -21,6 +21,7 @@ router.post("/", async (req, res) => {
       noteText,
       noteImgSrc,
       noteImgDesc,
+      noteListItem,
       noteTags,
     } = req.body;
 
@@ -56,6 +57,13 @@ router.post("/", async (req, res) => {
       };
     }
 
+    if (noteType === "list") {
+      const listItems = Array.from(noteListItem)
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
+      note.list = listItems;
+    }
+
     await note.save();
     res.redirect("/");
   } catch (err) {
@@ -76,6 +84,7 @@ router.put("/edit/:id", async (req, res) => {
       noteText,
       noteImgSrc,
       noteImgDesc,
+      noteListItem,
       noteTags,
     } = req.body;
 
@@ -96,6 +105,12 @@ router.put("/edit/:id", async (req, res) => {
         src: noteImgSrc,
         desc: noteImgDesc,
       };
+    }
+    if (noteType === "list") {
+      const listItems = Array.from(noteListItem)
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
+      updateData.list = listItems;
     }
 
     await Note.findByIdAndUpdate(req.params.id, updateData);

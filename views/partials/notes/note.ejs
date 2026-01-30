@@ -13,14 +13,24 @@
             <div class="line <%= note.colour %>">
             </div>
             <div class="noteContent">
+                <!-- Text Note -->
                 <% if (note.text) { %>
                 <p><%= note.text %></p>
                 <% } %>
+                <!-- Image Note -->
                 <% if (note.image?.src) { %>
                 <img src="<%= note.image.src %>" class="noteImg">
                 <% } %>
                 <% if (note.image.desc) { %>
                 <p class="imgDescP"><%= note.image.desc %> </p>
+                <% } %>
+                <!-- List Note -->
+                <% if (note.list) { %>
+                <ul>
+                    <% note.list.forEach(item => { %>
+                    <li><%= item %></li>
+                    <% }) %>
+                </ul>
                 <% } %>
 
             </div>

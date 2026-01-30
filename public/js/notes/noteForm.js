@@ -24,6 +24,9 @@ const noteImageInput = document.getElementById("noteImageInput");
 const noteImgSrc = document.getElementById("noteImgSrc");
 const noteimgDesc = document.getElementById("noteImgDesc");
 const imagePreview = document.getElementById("previewImgHere");
+const noteListValues = document.getElementById("noteListInput");
+const noteListItemFirst = document.querySelector(".noteListItem");
+const noteListItems = document.querySelectorAll(".noteListItem");
 
 // Optional fields
 const noteTags = document.getElementById("noteTags");
@@ -74,6 +77,15 @@ export function loadNoteImagePreview() {
   imagePreview.setAttribute("src", imgSrc);
 }
 
+export function setListNote() {
+  setNoteType = "list";
+  noteType.value = setNoteType;
+  noteListValues.classList.remove("collapsed");
+  noteListItemFirst.required = true;
+
+  loadNoteContentForm();
+}
+
 // --------------------------------------
 // Edit Exisiting Note
 // --------------------------------------
@@ -91,19 +103,30 @@ export function setEditNoteMode(note) {
   // Populate visible fields
   noteTitleValue.value = note.title;
   noteColourValue.value = note.colour;
-  noteTextValue.value = note.text;
-  noteImgSrc.value = note.image.src;
-  noteImgDesc.value = note.image.desc;
   noteTags.value = note.tags;
 
   loadNoteImagePreview();
 
   // Show input based on note type
   if (note.type === "text") {
+    noteTextValue.value = note.text;
     setTextNote();
   }
   if (note.type === "image") {
+    noteImgSrc.value = note.image.src;
+    noteImgDesc.value = note.image.desc;
     setImageNote();
+  }
+  if (note.type === "list") {
+    const listItems = note.list;
+    const list = listItems.split("&&");
+
+    list.forEach((item) => {
+      const itemInput = document.querySelector(".noteListItem:not(.full)");
+      itemInput.value = item;
+      itemInput.classList.add("full");
+      setListNote();
+    });
   }
 }
 
@@ -119,6 +142,10 @@ export function resetNoteForm() {
   noteTitleValue.value = "";
   noteColourValue.value = "";
   noteTags.value = "";
+  noteListItems.forEach((item) => {
+    item.value = "";
+  });
+
   resetNoteType();
 }
 
@@ -134,4 +161,11 @@ export function resetNoteType() {
   noteImgDesc.value = "";
   imagePreview.removeAttribute("src", imgSrc);
   noteImageInput.classList.add("collapsed");
+
+  noteListItemFirst.required = false;
+  noteListItems.forEach((item) => {
+    item.value = "";
+    item.classList.remove("full");
+  });
+  noteListValues.classList.add("collapsed");
 }

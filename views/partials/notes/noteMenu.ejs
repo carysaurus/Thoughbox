@@ -21,6 +21,7 @@
                         data-note-colour="<%= note.colour %>" data-note-type="<%= note.type %>"
                         data-note-text="<%= note.text || ''%>" data-note-img-src="<%= note.image?.src || ''%>"
                         data-note-img-desc="<%= note.image?.desc || ''%>"
+                        data-note-list="<%= (note.list || []).join('&&') %>"
                         data-note-tags="<%= (note.tags || []).join(', ') %>" aria-label="Edit Thought">
                         <i data-feather="edit"></i>
                 </button>

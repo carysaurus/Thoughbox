@@ -8,6 +8,7 @@ import {
   setEditNoteMode,
   resetNoteForm,
   loadNoteImagePreview,
+  setListNote,
 } from "./notes/noteForm.js";
 
 import {
@@ -89,6 +90,7 @@ const returnTypeBtn = document.getElementById("returnTypeBtn");
 const noteTextBtn = document.querySelector(".noteTypeBtn.text");
 const noteImageBtn = document.querySelector(".noteTypeBtn.image");
 const previewImgBtn = document.getElementById("previewImgBtn");
+const noteListBtn = document.querySelector(".noteTypeBtn.list");
 
 // Add new Note to Box
 newNoteBtns.forEach((button) => {
@@ -112,6 +114,7 @@ returnTypeBtn.addEventListener("click", () => {
   loadNoteTypeForm();
 });
 
+// Type specific buttons
 noteTextBtn.addEventListener("click", () => {
   returnTypeBtn.style.display = "flex";
   setTextNote();
@@ -122,6 +125,10 @@ noteImageBtn.addEventListener("click", () => {
 });
 previewImgBtn.addEventListener("click", () => {
   loadNoteImagePreview();
+});
+noteListBtn.addEventListener("click", () => {
+  returnTypeBtn.style.display = "flex";
+  setListNote();
 });
 
 // --------------------------------------
@@ -166,6 +173,7 @@ editNoteBtns.forEach((button) => {
         src: button.dataset.noteImgSrc || "",
         desc: button.dataset.noteImgDesc || "",
       },
+      list: button.dataset.noteList,
       tags: button.dataset.noteTags,
     };
     setEditNoteMode(note);

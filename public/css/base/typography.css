@@ -63,7 +63,7 @@ p.tag {
   }
 
   header p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding-left: clamp(0rem, 5vw, 2rem);
   }
 

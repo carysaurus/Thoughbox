@@ -1,4 +1,5 @@
 // public/js/notes/notes.js
+
 import { checkOpenBoxMenu } from "../boxes/boxes.js";
 
 export let openNoteMenu = null;
