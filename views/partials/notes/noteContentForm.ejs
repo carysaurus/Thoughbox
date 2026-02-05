@@ -4,7 +4,7 @@
      <h3 id="noteFormTitle"></h3>
      <input type="hidden" id="noteBoxId" name="noteBoxId">
      <input type="hidden" id="noteType" name="noteType">
-     <input type="text" id="noteTitle" name="noteTitle" placeholder="New Thought Name" required />
+     <input type="text" id="noteTitle" name="noteTitle" placeholder="New Thought Name" autocomplete="off" required />
      <select id="noteColour" name="noteColour">
          <option value="" disabled selected hidden>Colour Theme</option>
          <% noteColours.forEach(colour => { %>
@@ -18,7 +18,7 @@
          <!-- Image -->
          <div id="noteImageInput" class="collapsed">
              <label for="noteImgSrc" class="noteLabel">Image URL:</label> <input type="text" id="noteImgSrc"
-                 name="noteImgSrc" placeholder="image.jpg">
+                 name="noteImgSrc" placeholder="image.jpg" autocomplete="off">
              <br>
              <label for="noteImgDesc" class="noteLabel">Description:</label> <textarea id="noteImgDesc"
                  name="noteImgDesc" rows="3"></textarea>
@@ -34,7 +34,7 @@
              <% for (let i = 0; i < 20; i++) { %>
              <div class="note-item">
                  <span class="bullet">&bull;</span>
-                 <input type="text" name="noteListItem" class="noteListItem">
+                 <input type="text" name="noteListItem" class="noteListItem" autocomplete="off">
              </div>
              <% } %>
 

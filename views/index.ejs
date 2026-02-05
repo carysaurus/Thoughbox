@@ -5,11 +5,13 @@
 
 <%- include('partials/page/head') %>
 
-<body>
+<body data-logged-in="<%= user ? 'true' : 'false' %>">
 
+    <%- include('partials/auth/login') %>
     <%- include('partials/page/header') %>
 
     <main>
+
         <%- include('partials/notes/noteForm') %>
         <div id="containerBoxes">
             <%- include('partials/boxes/newBoxForm') %>

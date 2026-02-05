@@ -36,6 +36,10 @@ header p {
   padding-right: 1rem;
 }
 
+.loginSubheader {
+  font-style: italic;
+}
+
 #newBoxFormTitle {
   font-weight: 700;
   padding-bottom: 0.2rem;
@@ -58,7 +62,7 @@ p.tag {
 }
 
 @media (max-width: 500px) {
-  header h1 {
+  h1 {
     font-size: clamp(1.25rem, 12vw, 3.5rem);
   }
 

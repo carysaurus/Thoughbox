@@ -9,6 +9,7 @@
 /* page styles */
 @import url("./page.css");
 @import url("./buttons.css");
+@import url("./auth/auth.css");
 
 /* box styles */
 @import url("./boxes/boxes.css");

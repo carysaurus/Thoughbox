@@ -13,6 +13,10 @@ const { Note } = require("../models/noteModel");
 router.post("/", async (req, res) => {
   console.log(req.body);
   try {
+    if (!req.user) {
+      return res.status(401).send("Not authenticated");
+    }
+
     const {
       noteTitle,
       noteColour,
@@ -35,6 +39,7 @@ router.post("/", async (req, res) => {
     const newOrder = lastNote ? lastNote.order + 1 : 0;
 
     const note = new Note({
+      userId: req.user._id,
       title: noteTitle,
       colour: noteColour || undefined,
       type: noteType,

@@ -9,6 +9,13 @@ import {
 } from "./notes/notes.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const isLoggedIn = document.body.dataset.loggedIn === "true";
+
+  const authWindow = document.getElementById("authWindow");
+  if (isLoggedIn) {
+    authWindow.style.display = "none";
+  }
+
   feather.replace();
 });
 

@@ -20,7 +20,7 @@ const boxSchema = new Schema(
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: false, // To be updated when Users are implemented
+      required: true,
       ref: "User",
     },
     order: {

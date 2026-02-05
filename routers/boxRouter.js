@@ -16,12 +16,17 @@ const { Box } = require("../models/boxModel");
 router.post("/", async (req, res) => {
   console.log(req.body);
   try {
+    if (!req.user) {
+      return res.status(401).send("Not authenticated");
+    }
+
     const { boxTitle, boxColour } = req.body;
 
     const lastBox = await Box.findOne().sort({ order: -1 }).select("order");
     const newOrder = lastBox ? lastBox.order + 1 : 0;
 
     const box = new Box({
+      userId: req.user._id,
       title: boxTitle,
       colour: boxColour || undefined,
       order: newOrder,

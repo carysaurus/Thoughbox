@@ -11,9 +11,9 @@
     </div>
 
     <form id="newBoxForm" class="collapsed" method="POST" action="/boxes">
-        <!-- Update to include User ID once user functions are implemented -->
+
         <div class="formColLeft">
-            <input type="text" id="boxTitle" name="boxTitle" placeholder="New Box Name" required />
+            <input type="text" id="boxTitle" name="boxTitle" placeholder="New Box Name" autocomplete="off" required />
             <select id="boxColour" name="boxColour">
                 <option value="" disabled selected hidden>Colour Theme</option>
                 <% boxColours.forEach(colour => { %>
