@@ -57,7 +57,6 @@ export function collapseNewBoxForm() {
 const boxMenuMainBtns = document.querySelectorAll(".boxMenuMainBtn");
 const editBoxBtns = document.querySelectorAll(".editBoxBtn");
 const moveBoxBtns = document.querySelectorAll(".moveBoxBtn");
-const archiveBoxBtns = document.querySelectorAll(".archiveBoxBtn");
 const newNoteBtns = document.querySelectorAll(".newNoteBtn");
 
 // Open Menu for Individual Box
