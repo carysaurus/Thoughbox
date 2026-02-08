@@ -20,5 +20,6 @@
   /* other */
   --darkwash: rgba(40, 39, 39, 0.127);
   --lightwash: rgba(255, 255, 255, 0.79);
-  --boxMenuBg: rgba(40, 39, 39, 0.448);
+  --boxMenuBg: rgba(40, 39, 39, 0.5);
+  --deleteBg: rgba(40, 39, 39, 0.9);
 }

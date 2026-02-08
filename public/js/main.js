@@ -2,11 +2,12 @@
 import { expandNewBoxForm, collapseNewBoxForm } from "./buttons.js";
 import { updateToast } from "./toast.js";
 
-import { checkOpenBoxMenu } from "./boxes/boxes.js";
+import { checkOpenBoxMenu, checkOpenBoxDeletes } from "./boxes/boxes.js";
 import {
   checkOpenNoteMenu,
   expandNoteBody,
   collapseNoteBody,
+  checkOpenNoteDeletes,
 } from "./notes/notes.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,4 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("click", () => {
   checkOpenBoxMenu();
   checkOpenNoteMenu();
+  checkOpenBoxDeletes();
+  checkOpenNoteDeletes();
 });

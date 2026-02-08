@@ -22,10 +22,9 @@
                                 data-box-id="<%= box._id %>" aria-label="Archive / Unarchive"><i
                                         data-feather="archive"></i></button></form>
 
-                <form class="deleteBox" data-box-id="<%= box._id %>" method="POST"
-                        action="/boxes/delete/<%= box._id %>?_method=DELETE">
-                        <button type="submit" class="deleteBoxBtn smallBtn" title="Delete Box (Permanent)"
-                                data-box-id="<%= box._id %>" aria-label="
-                                Delete Box (Permanent)"><i data-feather="trash-2"></i></button></form>
+                <button type="button" class="deleteBoxBtn smallBtn" title="Delete Box (Permanent)"
+                        data-box-id="<%= box._id %>" aria-label="
+                                Delete Box (Permanent)"><i data-feather="trash-2"></i></button>
         </div>
+
 </div>

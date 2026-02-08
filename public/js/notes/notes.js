@@ -1,8 +1,9 @@
 // public/js/notes/notes.js
 
-import { checkOpenBoxMenu } from "../boxes/boxes.js";
+import { checkOpenBoxDeletes, checkOpenBoxMenu } from "../boxes/boxes.js";
 
 export let openNoteMenu = null;
+export let openNoteDeletes = null;
 
 export function toggleNoteMenuVis(id, event) {
   event.stopPropagation();
@@ -12,6 +13,8 @@ export function toggleNoteMenuVis(id, event) {
   );
 
   checkOpenBoxMenu();
+  checkOpenBoxDeletes();
+  checkOpenNoteDeletes();
 
   const isCollapsed = noteMenu.classList.contains("collapsed");
 
@@ -32,6 +35,25 @@ export function checkOpenNoteMenu() {
   if (openNoteMenu) {
     openNoteMenu.classList.add("collapsed");
     openNoteMenu = null;
+  }
+}
+
+export function toggleNoteDeletes(noteId, event) {
+  event.stopPropagation();
+  const confirmDelete = document.getElementById(`confirmDelete${noteId}`);
+
+  checkOpenNoteDeletes();
+  checkOpenBoxMenu();
+  checkOpenBoxDeletes();
+
+  confirmDelete.classList.remove("collapsed");
+  openNoteDeletes = confirmDelete;
+}
+
+export function checkOpenNoteDeletes() {
+  if (openNoteDeletes) {
+    openNoteDeletes.classList.add("collapsed");
+    openNoteDeletes = null;
   }
 }
 

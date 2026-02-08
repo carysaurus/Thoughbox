@@ -46,6 +46,11 @@ p {
   font-weight: 400;
 }
 
+.deleteText {
+  color: var(--font-light);
+  font-weight: 600;
+}
+
 /* Auth */
 .loginSubheader {
   font-style: italic;

@@ -2,7 +2,7 @@
 <container class="eachNote">
 
     <div class="note <%= note.colour %>" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>">
-
+        <%- include('./noteDelete', { note }) %>
         <div class="noteHead">
             <%- include('./noteOrder', { note }) %>
             <h3><% if (note.archived) { %>
@@ -12,12 +12,14 @@
                 <% } %>
                 <%= note.title %></h3>
 
+
             <%- include('./noteMenu', { boxId: box._id, note }) %>
         </div>
         <div class="noteBody <%= note.collapsed ? 'collapsed' : '' %>" data-note-id="<%= note._id %>">
             <div class="line <%= note.colour %>">
             </div>
             <div class="noteContent">
+
                 <!-- Text Note -->
                 <% if (note.text) { %>
                 <p><%= note.text %></p>

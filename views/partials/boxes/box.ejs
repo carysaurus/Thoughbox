@@ -1,7 +1,7 @@
 <!-- views/partials/boxes/box.ejs -->
 
 <div class="box <%= box.colour %>" data-box-id="<%= box._id %>">
-
+    <%- include('./boxDelete', { box }) %>
     <h2> <% if (box.archived) { %>
         <i data-feather="archive" class="archivedBox"> </i>
         <% } %>
@@ -12,6 +12,7 @@
 
     <div class="boxNotes">
 
+
         <% const boxNotes = notes.filter(note => note.boxId.toString() === box._id.toString()) %>
         <% if (boxNotes.length != 0) { %>
         <% boxNotes.forEach(note => { %>
@@ -20,8 +21,9 @@
         <% } else  { %>
         <%- include('./emptyBox', { box} ) %>
         <% } %>
+
     </div>
 
-    <%- include('./boxOrder.ejs', { box }) %>
+    <%- include('./boxOrder', { box }) %>
 
 </div>

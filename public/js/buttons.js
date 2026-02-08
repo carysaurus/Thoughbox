@@ -16,9 +16,14 @@ import {
   expandNoteBody,
   collapseNoteBody,
   editNoteOrder,
+  toggleNoteDeletes,
 } from "./notes/notes.js";
 
-import { toggleBoxMenuVis, toggleBoxEditForm } from "./boxes/boxes.js";
+import {
+  toggleBoxMenuVis,
+  toggleBoxEditForm,
+  toggleBoxDeletes,
+} from "./boxes/boxes.js";
 
 let currentBoxId = null;
 
@@ -56,8 +61,9 @@ export function collapseNewBoxForm() {
 // --------------------------------------
 const boxMenuMainBtns = document.querySelectorAll(".boxMenuMainBtn");
 const editBoxBtns = document.querySelectorAll(".editBoxBtn");
-const moveBoxBtns = document.querySelectorAll(".moveBoxBtn");
 const newNoteBtns = document.querySelectorAll(".newNoteBtn");
+const deleteBoxBtns = document.querySelectorAll(".deleteBoxBtn");
+const cancelDeleteBtns = document.querySelectorAll(".cancelDeleteBtn");
 
 // Open Menu for Individual Box
 boxMenuMainBtns.forEach((button) => {
@@ -72,18 +78,25 @@ editBoxBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const boxId = button.dataset.boxId;
     toggleBoxEditForm(boxId);
-    toggleBoxMenuVis(boxId);
+    toggleBoxMenuVis(boxId, event);
   });
 });
 
-// Re-order Boxes -- to be updated once function is implemented
-moveBoxBtns.forEach((button) => {
+deleteBoxBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const boxId = button.dataset.boxId;
+    toggleBoxDeletes(boxId, event);
+  });
+});
+
+cancelDeleteBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const boxId = button.dataset.boxId;
-    console.log(`Move box ${boxId}`);
+    const confirmDelete = document.getElementById(`confirmDelete${boxId}`);
+
+    confirmDelete.classList.add("collapsed");
   });
 });
-
 // --------------------------------------
 // Note Form Buttons
 // --------------------------------------
@@ -141,8 +154,9 @@ const expandNoteBtns = document.querySelectorAll(".expandNoteBtn");
 const collapseNoteBtns = document.querySelectorAll(".collapseNoteBtn");
 const noteMenuMainBtns = document.querySelectorAll(".noteMenuMainBtn");
 const editNoteBtns = document.querySelectorAll(".editNoteBtn");
-const moveNoteBtns = document.querySelectorAll(".moveNoteBtn");
 const archiveNoteBtns = document.querySelectorAll(".archiveNoteBtn");
+const deleteNoteBtns = document.querySelectorAll(".deleteNoteBtn");
+const cancelNoteDeleteBtns = document.querySelectorAll(".cancelNoteDeleteBtn");
 
 noteMenuMainBtns.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -183,14 +197,6 @@ editNoteBtns.forEach((button) => {
   });
 });
 
-moveNoteBtns.forEach((button) => {
-  button.addEventListener("click", () => {
-    const noteId = button.dataset.noteId;
-    const noteOrder = button.dataset.noteOrder;
-    editNoteOrder(noteId, noteOrder);
-  });
-});
-
 archiveNoteBtns.forEach((button) => {
   button.addEventListener("click", async () => {
     const noteId = button.dataset.noteId;
@@ -207,5 +213,20 @@ archiveNoteBtns.forEach((button) => {
     } catch (err) {
       console.error("Failed to archive:", err);
     }
+  });
+});
+
+deleteNoteBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const noteId = button.dataset.noteId;
+    toggleNoteDeletes(noteId, event);
+  });
+});
+cancelNoteDeleteBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const noteId = button.dataset.noteId;
+    const confirmDelete = document.getElementById(`confirmDelete${noteId}`);
+
+    confirmDelete.classList.add("collapsed");
   });
 });
