@@ -1,4 +1,4 @@
-# Thoughtbox ✨📝
+# Thoughtbox
 
 Welcome to **Thoughtbox** — a whimsical, web-based notes and ideas management app. Organize your thoughts into boxes, capture new ideas, and archive items for later reflection.
 
@@ -30,16 +30,28 @@ Welcome to **Thoughtbox** — a whimsical, web-based notes and ideas management 
 
 1. **Clone the repository:**
 
-git clone https://github.com/carysaurus/Thoughbox.git
+git clone https://github.com/carysaurus/Thoughtbox.git
 cd thoughtbox
 
 2. **Install dependencies:**
 
 npm install
 
+This will install all required packages, including:
+
+- ejs
+- express
+- express-session
+- feather-icons
+- method-override
+- mongoose
+- passport
+- passport-local
+
 3. **Start the development server:**
 
 npm run dev
+The server will start on http://localhost:3000 by default.
 
 4. **Open your browser:**
 
