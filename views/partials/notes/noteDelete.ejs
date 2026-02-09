@@ -1,0 +1,16 @@
+<!-- view/partials/notes/noteDelete.ejs -->
+
+<div class="confirmDelete noteDelete collapsed" id="confirmDelete<%= note._id %>">
+    <p class="deleteText">Permanently delete this Thought?</p>
+    <div class="deleteBtns">
+        <form class="deleteNote" data-note-id="<%= note._id %>" method="POST"
+            action="/notes/delete/<%= note._id %>?_method=DELETE">
+            <button type="submit" class="deleteNoteConfirmBtn" title="Delete Thought (Permanent)"
+                data-note-id="<%= note._id %>" aria-label="
+            Delete Thought (Permanent)" title="Yes, Delete"><i data-feather="check-square"></i></button>
+        </form>
+        <button type="button" data-note-id="<%= note._id %>" class="cancelNoteDeleteBtn" title="No, Cancel"><i
+                data-feather="x-square"></i></button>
+
+    </div>
+</div>

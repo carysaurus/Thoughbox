@@ -1,0 +1,193 @@
+/* public/css/buttons.css */
+
+/* -------------------------------------- */
+/* Button Styles */
+/* -------------------------------------- */
+.feather {
+  width: clamp(0.75rem, 5vw, 1.5rem);
+  height: clamp(0.75rem, 5vw, 1.5rem);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  background: none;
+  overflow: hidden;
+  background: var(--page-background);
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+button:hover,
+button:focus {
+  background: var(--button-focus);
+  transform: scale(1.1);
+}
+
+button:hover .feather,
+button:focus .feather {
+  background: var(--button-focus);
+  color: white;
+}
+
+button:disabled {
+  background: var(--button-focus);
+  color: white;
+  pointer-events: none;
+}
+
+button.hidden {
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lgBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.smallBtn {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.xsBtn {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#loginBtn,
+#registerBtn {
+  width: 95px;
+}
+
+.footerBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--lightwash);
+}
+
+.deleteBtns {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+/* Archived Icons */
+.archivedBox {
+  width: 1rem;
+  height: 1rem;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+  color: var(--lightwash);
+  background: var(--main-border);
+  border-radius: 0.25rem;
+}
+.archivedNote {
+  width: 1rem;
+  height: 1rem;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+  color: var(--lightwash);
+  background: var(--main-border);
+  border-radius: 0.25rem;
+  margin-bottom: -0.25rem;
+}
+
+/* -------------------------------------- */
+/* New Box Form Buttons */
+/* -------------------------------------- */
+#expandNewBoxBtn,
+#collapseNewBoxBtn {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* -------------------------------------- */
+/* Box Buttons */
+/* -------------------------------------- */
+
+.newNoteBtn {
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: flex-end;
+  margin: 0.2rem;
+}
+
+.newNoteBtn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* -------------------------------------- */
+/* Note Form Buttons */
+/* -------------------------------------- */
+.cancelNoteBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.noteTypeBtn {
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  width: 150px;
+  border-radius: 5%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* -------------------------------------- */
+/* Note Buttons */
+/* -------------------------------------- */
+
+.expandNoteBtn,
+.collapseNoteBtn,
+.noteMenuMainBtn {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.noteMenuMainBtn {
+  position: relative;
+}
+
+.expandNoteBtn.collapsed,
+.collapseNoteBtn.collapsed {
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
+}
+
+.noteOrderBtn,
+.boxOrderBtn {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+button:disabled {
+  background: var(--boxMenuBg);
+}

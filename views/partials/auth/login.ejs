@@ -1,0 +1,22 @@
+<!-- view/partials/auth/login.ejs -->
+
+<div id="authWindow">
+    <div id="loginFormFrame">
+        <h1>Thoughtbox</h1>
+
+        <form id="loginForm" method="POST">
+            <div class="userLogin">
+                <i data-feather="user"></i> <input type="text" name="username" class="authInput" placeholder="Username"
+                    autocomplete="username" required>
+            </div>
+            <div class="userLogin">
+                <i data-feather="lock"></i> <input type="password" name="password" class="authInput"
+                    placeholder="Password" autocomplete="current-password" required>
+            </div>
+            <div class="buttons">
+                <button id="loginBtn" type="submit" formaction="/auth/login">Login</button>
+                <button id="registerBtn" type="submit" formaction="/auth/register">Register</button></div>
+        </form>
+        <img src="/assets/Thoughtbox.png" id="loginLogo">
+    </div>
+</div>

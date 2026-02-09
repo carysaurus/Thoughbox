@@ -1,0 +1,15 @@
+<!-- view/partials/boxes/boxDelete.ejs -->
+
+<div class="confirmDelete collapsed" id="confirmDelete<%= box._id %>">
+    <p class="deleteText">Permanently delete this Box?</p>
+    <div class="deleteBtns">
+        <form class="deleteBox" data-box-id="<%= box._id %>" method="POST"
+            action="/boxes/delete/<%= box._id %>?_method=DELETE">
+            <button type="submit" class="deleteConfirmBtn" title="Delete Box (Permanent)" data-box-id="<%= box._id %>"
+                aria-label="Delete Box (Permanent)" title="Yes, Delete"><i data-feather="check-square"></i></button>
+        </form>
+        <button type="button" data-box-id="<%= box._id %>" class="cancelDeleteBtn" title="No, Cancel"><i
+                data-feather="x-square"></i></button>
+
+    </div>
+</div>

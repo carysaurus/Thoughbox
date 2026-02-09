@@ -1,0 +1,174 @@
+/* public/css/base.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Raleway;
+}
+
+body {
+  background-color: var(--page-background);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.5rem;
+  position: relative;
+  height: clamp(60px, 20vw, 90px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+#headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+#logo {
+  max-height: 90%;
+  flex-shrink: 0;
+  width: auto;
+}
+
+main {
+  background-color: var(--main-background);
+  border-top: 4px double var(--main-border);
+  border-bottom: 4px double var(--main-border);
+  margin-top: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#toast {
+  position: absolute;
+  align-self: center;
+  top: 155px;
+  height: 38px;
+  width: 250px;
+  padding: 0.5rem 1rem;
+  background-color: var(--light-background);
+  border-radius: 0.5rem;
+  border-top: 4px double var(--main-border);
+  border-bottom: 4px double var(--main-border);
+  border-left: 1px solid var(--main-border);
+  border-right: 1px solid var(--main-border);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  z-index: 11;
+  pointer-events: none;
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+}
+
+.confirmDelete {
+  height: 120px;
+  width: 130px;
+  position: absolute;
+  align-self: center;
+  top: 3.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--deleteBg);
+  border: 1px solid black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.noteDelete {
+  height: 140px;
+  top: 1rem;
+}
+
+/* Footer */
+footer {
+  height: clamp(60px, 30vw, 80px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem;
+  padding-right: 0.5rem;
+  position: relative;
+}
+
+#footerUser {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(0px, 50vw, 200px);
+}
+
+#showUsername {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+/* Footer Buttons */
+#footerBtns {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+}
+#userLogout {
+  margin-left: auto;
+}
+
+/* Carysaurus */
+#carysaurus {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: 1rem;
+}
+#footer-image {
+  height: clamp(30px, 80%, 80px);
+  flex-shrink: 0;
+  width: auto;
+}
+
+@media (max-width: 450px) {
+  #headerText {
+    gap: 0.5rem;
+  }
+  header,
+  main {
+    margin-top: 1rem;
+  }
+  footer {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 400px) {
+  #carysaurus {
+    height: 90%;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

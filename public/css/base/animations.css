@@ -1,0 +1,38 @@
+/* public/css/base/animations.css */
+.toastAnim {
+  transform: translateY(50%);
+  opacity: 0;
+  animation:
+    popUp 0.5s forwards,
+    popDown 0.5s forwards 5s;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes popDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
