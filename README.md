@@ -26,7 +26,7 @@ Welcome to **Thoughtbox** — a whimsical, web-based notes and ideas management 
 
 ---
 
-## Getting Started
+## Getting Started (Local Development)
 
 1. **Clone the repository:**
 
@@ -39,6 +39,7 @@ npm install
 
 This will install all required packages, including:
 
+- dotenv
 - ejs
 - express
 - express-session
@@ -48,14 +49,18 @@ This will install all required packages, including:
 - passport
 - passport-local
 
-3. **Start the development server:**
+3. **Create a .env file in the project root with the following variables:**
+
+MONGODB_URI=your_mongodb_connection_string
+SESSION_SECRET=your_secret_key
+
+MONGODB_URI → your MongoDB Atlas connection string
+SESSION_SECRET → any long, random string to secure session cookies
+
+4. **Start the Development Server**
 
 npm run dev
 The server will start on http://localhost:3000 by default.
-
-4. **Open your browser:**
-
-Go to http://localhost:3000 and let your ideas flow.
 
 ---
 
