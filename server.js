@@ -13,9 +13,13 @@ const pageRouter = require("./routers/pageRouter");
 const noteRouter = require("./routers/noteRouter");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
+
+const mongoURI =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://carysaurus_admin:R74NOkbdXJhO6P5o@thoughtbox.tjujzbl.mongodb.net/?appName=Thoughtbox";
 
 /* -------------------------------------- */
 /* Middleware */
@@ -30,7 +34,7 @@ app.use(
 app.use(methodOverride("_method"));
 app.use(
   session({
-    secret: "some secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   }),
@@ -51,12 +55,12 @@ app.use("/auth", authRouter);
 /* Connect to Database and Server */
 /* -------------------------------------- */
 mongoose
-  .connect("mongodb://localhost:27017/thoughtbox")
+  .connect(mongoURI)
   .then(() => {
     console.log("Connected to MongoDB");
 
     app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch((err) => {
